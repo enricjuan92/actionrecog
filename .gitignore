@@ -105,6 +105,6 @@ ENV/
 .avi
 .pyc
 
-#/checkpoints
+/checkpoints
 .DS_Store
 __init__.py

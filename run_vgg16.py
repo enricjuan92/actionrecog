@@ -21,7 +21,7 @@ def accuracy(predictions, labels):
 
 # PATHs definitions
 VIDEOS_PATH = 'resources/'
-CKPT_PATH = 'checkpoints/vgg_16.ckpt'
+CKPT_PATH = 'checkpoints/imagenet_vgg16.ckpt'
 
 videos = os.listdir(VIDEOS_PATH)
 video_in = os.path.join(VIDEOS_PATH, videos[0])
@@ -74,13 +74,24 @@ with tf.Graph().as_default():
     processed_image2 = tf.expand_dims(processed_image2, 0)
 
     processed_images = tf.concat([processed_image1, processed_image2], 0)
+    print(processed_images.shape)
 
+    processed_images = tf.image.rgb_to_grayscale(processed_images)
+    print(processed_images.shape)
+
+    processed_images = tf.concat([processed_images, processed_images, processed_images,
+                                  processed_images, processed_images, processed_images,
+                                  processed_images, processed_images, processed_images,
+                                  processed_images, processed_images, processed_images,
+                                  processed_images, processed_images, processed_images,
+                                  processed_images, processed_images, processed_images,
+                                  processed_images, processed_images], 3)
     print(processed_images.shape)
 
 
     # Create the model, fuse the default arg scope to configure the batch norm parameters
     with slim.arg_scope(vgg.vgg_arg_scope()):
-        logits, _ = vgg.vgg_16(processed_images, num_classes=1000, is_training=False)
+        logits, _ = vgg.vgg_16(processed_images, num_classes=101, is_training=False)
     probabilities = tf.nn.softmax(logits)
 
     # Define the loss functions and get the total loss.
@@ -93,12 +104,12 @@ with tf.Graph().as_default():
     # train_op = slim.learning.create_train_op(total_loss, optimizer)
     # logdir = ...  # Where checkpoints are stored
 
-    print logits, probabilities
+    # print logits, probabilities
 
     # Add ops to restore all the variables.
-    variables_to_restore = slim.get_variables_to_restore(exclude=['fc8'])
+    # variables_to_restore = slim.get_variables_to_restore()
     # init_fn = tf.contrib.framework.assign_from_checkpoint_fn(CKPT_PATH, slim.get_model_variables())
-    init_fn = tf.contrib.framework.assign_from_checkpoint_fn(CKPT_PATH, variables_to_restore)
+    init_fn = tf.contrib.framework.assign_from_checkpoint_fn('checkpoints/temporal_vgg16.ckpt', slim.get_model_variables())
 
     # slim.learning.train(train_op, log_dir, init_fn=init_fn)
 
@@ -112,27 +123,30 @@ with tf.Graph().as_default():
         np_images, probabilities = sess.run([processed_images, probabilities])
 
         # print('Test accuracy: %.1f%%' % accuracy(probabilities.eval(), labels))
-    print np_images.shape, probabilities.shape
+    print np_images.shape, probabilities.shape, np.amax(probabilities*100)
 
-    probabilities_0 = probabilities[0, 0:]
-    sorted_inds = [i[0] for i in sorted(enumerate(-probabilities_0), key=lambda x: x[1])]
+    # probabilities_0 = probabilities[0, 0:]
+    # sorted_inds = [i[0] for i in sorted(enumerate(-probabilities_0), key=lambda x: x[1])]
+    #
+    # for i in range(5):
+    #     index = sorted_inds[i]
+    #     print('Probability_0 %0.2f%% => [%s]' % (100 * probabilities_0[index], labels[index]))
+    #
+    # probabilities_1 = probabilities[1, 0:]
+    # sorted_inds = [i[0] for i in sorted(enumerate(-probabilities_1), key=lambda x: x[1])]
+    #
+    # for i in range(5):
+    #     index = sorted_inds[i]
+    #     print('Probability_1 %0.2f%% => [%s]' % (100 * probabilities_1[index], labels[index]))
 
-    for i in range(5):
-        index = sorted_inds[i]
-        print('Probability_0 %0.2f%% => [%s]' % (100 * probabilities_0[index], labels[index]))
 
-    probabilities_1 = probabilities[1, 0:]
-    sorted_inds = [i[0] for i in sorted(enumerate(-probabilities_1), key=lambda x: x[1])]
+    # plt.figure()
+    # plt.imshow(np_images[0].astype(np.uint8))
+    # plt.savefig('results/result1')
+    #
+    # plt.figure()
+    # plt.imshow(np_images[1].astype(np.uint8))
+    # plt.savefig('results/result2')
 
-    for i in range(5):
-        index = sorted_inds[i]
-        print('Probability_1 %0.2f%% => [%s]' % (100 * probabilities_1[index], labels[index]))
-
-
-    plt.figure()
-    plt.imshow(np_images[0].astype(np.uint8))
-    plt.savefig('results/result1')
-
-    plt.figure()
-    plt.imshow(np_images[1].astype(np.uint8))
-    plt.savefig('results/result2')
+    from tensorflow.python.tools.inspect_checkpoint import print_tensors_in_checkpoint_file
+    print_tensors_in_checkpoint_file(file_name='checkpoints/temporal_vgg16.ckpt', tensor_name=None, all_tensors=False)
