@@ -108,3 +108,7 @@ ENV/
 /checkpoints
 .DS_Store
 __init__.py
+checkpoints*/
+checkpoints/
+checkpoints_2/
+/checkpoints_2

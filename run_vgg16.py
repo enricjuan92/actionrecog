@@ -65,33 +65,36 @@ with tf.Graph().as_default():
     image1 = tf.image.decode_jpeg(image1_string, channels=3)
     image2 = tf.image.decode_jpeg(image2_string, channels=3)
 
-    images = tf.concat([image1, image2], 0)
+    # processed_image1 = vgg_preprocessing.preprocess_image(image1, image_size, image_size, is_training=False)
+    # processed_image2 = vgg_preprocessing.preprocess_image(image2, image_size, image_size, is_training=False)
 
-    processed_image1 = vgg_preprocessing.preprocess_image(image1, image_size, image_size, is_training=False)
-    processed_image2 = vgg_preprocessing.preprocess_image(image2, image_size, image_size, is_training=False)
+    image1 = tf.image.resize_images(images=image1, size=[224, 224])
+    image1 = tf.expand_dims(image1, 0)
+    print image1.shape
 
-    processed_image1 = tf.expand_dims(processed_image1, 0)
-    processed_image2 = tf.expand_dims(processed_image2, 0)
+    image2 = tf.image.resize_images(images=image2, size=[224, 224])
+    image2 = tf.expand_dims(image2, 0)
+    print image2.shape
 
-    processed_images = tf.concat([processed_image1, processed_image2], 0)
-    print(processed_images.shape)
+    processed_images = tf.concat([image1, image2], 0)
+    print processed_images.shape
 
-    processed_images = tf.image.rgb_to_grayscale(processed_images)
-    print(processed_images.shape)
+    # processed_images = tf.image.rgb_to_grayscale(processed_images)
+    # print(processed_images.shape)
 
-    processed_images = tf.concat([processed_images, processed_images, processed_images,
-                                  processed_images, processed_images, processed_images,
-                                  processed_images, processed_images, processed_images,
-                                  processed_images, processed_images, processed_images,
-                                  processed_images, processed_images, processed_images,
-                                  processed_images, processed_images, processed_images,
-                                  processed_images, processed_images], 3)
-    print(processed_images.shape)
+    # processed_images = tf.concat([processed_images, processed_images, processed_images,
+    #                               processed_images, processed_images, processed_images,
+    #                               processed_images, processed_images, processed_images,
+    #                               processed_images, processed_images, processed_images,
+    #                               processed_images, processed_images, processed_images,
+    #                               processed_images, processed_images, processed_images,
+    #                               processed_images, processed_images], 3)
+    # print(processed_images.shape)
 
 
     # Create the model, fuse the default arg scope to configure the batch norm parameters
     with slim.arg_scope(vgg.vgg_arg_scope()):
-        logits, _ = vgg.vgg_16(processed_images, num_classes=101, is_training=False)
+        logits, _ = vgg.vgg_16(processed_images, num_classes=1000, is_training=False)
     probabilities = tf.nn.softmax(logits)
 
     # Define the loss functions and get the total loss.
@@ -109,7 +112,7 @@ with tf.Graph().as_default():
     # Add ops to restore all the variables.
     # variables_to_restore = slim.get_variables_to_restore()
     # init_fn = tf.contrib.framework.assign_from_checkpoint_fn(CKPT_PATH, slim.get_model_variables())
-    init_fn = tf.contrib.framework.assign_from_checkpoint_fn('checkpoints/temporal_vgg16.ckpt', slim.get_model_variables())
+    init_fn = tf.contrib.framework.assign_from_checkpoint_fn('checkpoints/imagenet_vgg16.ckpt', slim.get_model_variables())
 
     # slim.learning.train(train_op, log_dir, init_fn=init_fn)
 
@@ -118,7 +121,6 @@ with tf.Graph().as_default():
         # plt.imshow(frame.eval())
         # plt.savefig('processed_image')
         init_fn(sess)
-        feed_dict = [processed_image1, processed_image2]
         # np_images, probabilities = sess.run(probabilities, feed_dict={x: processed_images})
         np_images, probabilities = sess.run([processed_images, probabilities])
 
@@ -148,5 +150,5 @@ with tf.Graph().as_default():
     # plt.imshow(np_images[1].astype(np.uint8))
     # plt.savefig('results/result2')
 
-    from tensorflow.python.tools.inspect_checkpoint import print_tensors_in_checkpoint_file
-    print_tensors_in_checkpoint_file(file_name='checkpoints/temporal_vgg16.ckpt', tensor_name=None, all_tensors=False)
+    # from tensorflow.python.tools.inspect_checkpoint import print_tensors_in_checkpoint_file
+    # print_tensors_in_checkpoint_file(file_name='checkpoints/temporal_vgg16.ckpt', tensor_name=None, all_tensors=False)
