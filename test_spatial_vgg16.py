@@ -252,6 +252,10 @@ class vgg16:
         for i, j in enumerate(sorted(items)):
             print i, j[0], j[1].keys()[0], j[1][('weights')].shape
 
+            if i == 14:
+                print j[0], j[1].keys()[0]
+                print j[1][('weights')]
+
             # print j[1][('weights')]
 
             i *= 2
@@ -332,7 +336,7 @@ if __name__ == '__main__':
     # #     print class_names[p], prob[p]
     #
     from tensorflow.python.tools.inspect_checkpoint import print_tensors_in_checkpoint_file
-    print_tensors_in_checkpoint_file(file_name='checkpoints/spatial_vgg16.ckpt', tensor_name=None, all_tensors=False)
+    # print_tensors_in_checkpoint_file(file_name='checkpoints/spatial_vgg16.ckpt', tensor_name=None, all_tensors=False)
 
     # sess = tf.Session()
     # imgs = tf.placeholder(tf.float32, [None, 224, 224, 3])

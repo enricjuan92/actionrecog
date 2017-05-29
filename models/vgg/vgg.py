@@ -169,9 +169,9 @@ def vgg_16(inputs,
                 [layers.conv2d, layers_lib.fully_connected, layers_lib.max_pool2d],
                 outputs_collections=end_points_collection):
 
-            net = layers.conv2d(inputs, 64, (3, 3), scope='conv1/conv1_1')
-            net = layers.conv2d(net, 64, [3, 3], scope='conv1/conv1_2')
-            # net = layers_lib.repeat(inputs, 2, layers.conv2d, 64, [3, 3], scope='conv1')
+            # net = layers.conv2d(inputs, 64, (3, 3), scope='conv1/conv1_1')
+            # net = layers.conv2d(net, 64, [3, 3], scope='conv1/conv1_2')
+            net = layers_lib.repeat(inputs, 2, layers.conv2d, 64, [3, 3], scope='conv1')
             net = layers_lib.max_pool2d(net, [2, 2], scope='pool1')
             net = layers_lib.repeat(net, 2, layers.conv2d, 128, [3, 3], scope='conv2')
             net = layers_lib.max_pool2d(net, [2, 2], scope='pool2')

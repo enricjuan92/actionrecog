@@ -116,7 +116,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_BoxingPunchingBag_g22_c03/frame000197.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Skijet_g09_c02/frame000148.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Kayaking_g19_c02/frame000150.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_JugglingBalls_g18_c02/frame000242.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_JugglingBalls_g18_c02/frame000002.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BodyWeightSquats_g10_c02/frame000159.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_ApplyEyeMakeup_g25_c05/frame000092.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_TrampolineJumping_g14_c02/frame000228.jpg
@@ -228,7 +228,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Biking_g12_c02/frame000202.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_CleanAndJerk_g21_c04/frame000113.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g11_c05/frame000086.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g24_c07/frame000299.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g24_c07/frame000009.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PizzaTossing_g12_c03/frame000105.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HorseRace_g18_c01/frame000248.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_TableTennisShot_g14_c01/frame000236.jpg
@@ -387,7 +387,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Rowing_g08_c01/frame000197.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_YoYo_g19_c03/frame000181.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Skijet_g11_c01/frame000209.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_Biking_g22_c03/frame000344.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_Biking_g22_c03/frame000009.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Punch_g13_c05/frame000299.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_FieldHockeyPenalty_g23_c01/frame000077.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingFlute_g24_c04/frame000127.jpg
@@ -533,7 +533,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Bowling_g08_c07/frame000152.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_VolleyballSpiking_g08_c02/frame000109.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_SkyDiving_g22_c01/frame000328.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g16_c03/frame000130.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g16_c03/frame000002.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Skiing_g19_c02/frame000183.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Diving_g20_c07/frame000150.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PizzaTossing_g12_c04/frame000162.jpg
@@ -858,7 +858,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_WallPushups_g16_c04/frame000158.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g22_c07/frame000098.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_SalsaSpin_g22_c01/frame000332.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_BaseballPitch_g10_c05/frame000103.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_BaseballPitch_g10_c05/frame000007.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BoxingSpeedBag_g09_c02/frame000415.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingDhol_g21_c06/frame000301.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_CliffDiving_g19_c02/frame000080.jpg
@@ -979,7 +979,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_HulaHoop_g12_c02/frame000090.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_MilitaryParade_g17_c04/frame000142.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Surfing_g20_c04/frame000256.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g16_c01/frame000598.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g16_c01/frame000005.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Billiards_g16_c04/frame000293.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Punch_g18_c07/frame000299.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HorseRiding_g16_c01/frame000160.jpg
@@ -1019,7 +1019,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_WallPushups_g17_c07/frame000092.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingGuitar_g22_c04/frame000249.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Lunges_g13_c04/frame000241.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g09_c05/frame000115.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g09_c05/frame000006.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_ApplyLipstick_g12_c04/frame000276.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Swing_g14_c01/frame000112.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Archery_g23_c04/frame000104.jpg
@@ -1090,7 +1090,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingViolin_g10_c01/frame000173.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_ParallelBars_g15_c04/frame000156.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_GolfSwing_g21_c04/frame000169.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_GolfSwing_g23_c06/frame000292.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_GolfSwing_g23_c06/frame000003.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingPiano_g16_c05/frame000239.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Kayaking_g10_c02/frame000156.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HandstandPushups_g12_c03/frame000071.jpg
@@ -1173,12 +1173,12 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Typing_g22_c02/frame000249.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_TaiChi_g12_c01/frame000181.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BlowDryHair_g12_c06/frame000269.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_TrampolineJumping_g09_c06/frame000191.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_TrampolineJumping_g09_c06/frame000007.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_RockClimbingIndoor_g10_c02/frame000411.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Bowling_g08_c03/frame000099.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HammerThrow_g19_c03/frame000164.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_SalsaSpin_g11_c05/frame000166.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_VolleyballSpiking_g11_c02/frame000163.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_VolleyballSpiking_g11_c02/frame000006.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BlowingCandles_g18_c03/frame000124.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_JugglingBalls_g23_c01/frame000250.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BaseballPitch_g21_c01/frame000160.jpg
@@ -1685,7 +1685,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Fencing_g13_c01/frame000138.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_RockClimbingIndoor_g20_c05/frame000396.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HeadMassage_g19_c01/frame000148.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g16_c06/frame000345.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g16_c06/frame000007.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingSitar_g19_c06/frame000444.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BoxingPunchingBag_g12_c02/frame000136.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BalanceBeam_g25_c04/frame000101.jpg
@@ -1699,13 +1699,13 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_TableTennisShot_g17_c03/frame000082.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Punch_g12_c02/frame000299.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_SkateBoarding_g24_c02/frame000099.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g13_c02/frame000329.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g13_c02/frame000007.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Billiards_g13_c04/frame000244.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g09_c05/frame000121.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Drumming_g25_c05/frame000299.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingSitar_g22_c05/frame000260.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g20_c06/frame000239.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g16_c01/frame000527.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g16_c01/frame000009.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BabyCrawling_g20_c07/frame000249.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HeadMassage_g18_c02/frame000149.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BalanceBeam_g11_c04/frame000115.jpg
@@ -1745,7 +1745,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Lunges_g16_c01/frame000254.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Billiards_g14_c02/frame000258.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HorseRace_g16_c04/frame000290.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g16_c07/frame000239.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g16_c07/frame000009.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Mixing_g13_c06/frame000103.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_MilitaryParade_g17_c03/frame000137.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BabyCrawling_g08_c04/frame000094.jpg
@@ -1906,7 +1906,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Haircut_g21_c01/frame000204.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_WalkingWithDog_g17_c02/frame000239.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_StillRings_g12_c02/frame000257.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g21_c02/frame000415.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g21_c02/frame000005.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Shotput_g18_c01/frame000101.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Diving_g19_c03/frame000170.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingViolin_g18_c04/frame000153.jpg
@@ -1930,7 +1930,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingTabla_g17_c03/frame000276.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_StillRings_g17_c04/frame000206.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_IceDancing_g19_c02/frame000251.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g16_c02/frame000297.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g16_c02/frame000008.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_GolfSwing_g18_c03/frame000114.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingGuitar_g21_c03/frame000249.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HorseRace_g17_c02/frame000228.jpg
@@ -2053,7 +2053,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_BandMarching_g25_c04/frame000088.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_JumpingJack_g19_c02/frame000081.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Rowing_g10_c07/frame000490.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_JugglingBalls_g18_c01/frame000253.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_JugglingBalls_g18_c01/frame000004.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_GolfSwing_g18_c04/frame000096.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Fencing_g09_c03/frame000131.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_StillRings_g25_c03/frame000139.jpg
@@ -2071,7 +2071,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g09_c01/frame000101.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Bowling_g08_c01/frame000119.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Mixing_g25_c02/frame000101.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g16_c04/frame000321.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g16_c04/frame000002.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Bowling_g24_c02/frame000100.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HighJump_g23_c04/frame000084.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingDhol_g22_c04/frame000252.jpg
@@ -2135,7 +2135,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_PushUps_g09_c02/frame000083.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HulaHoop_g13_c02/frame000098.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingDaf_g22_c04/frame000383.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g13_c05/frame000299.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g13_c05/frame000007.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingDhol_g08_c04/frame000286.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Punch_g13_c06/frame000299.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingGuitar_g13_c02/frame000249.jpg
@@ -2511,7 +2511,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_HandstandPushups_g09_c01/frame000089.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_CleanAndJerk_g12_c07/frame000150.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_ApplyLipstick_g09_c02/frame000243.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_JavelinThrow_g19_c01/frame000082.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_JavelinThrow_g19_c01/frame000004.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PushUps_g22_c03/frame000066.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Knitting_g10_c03/frame000158.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingCello_g08_c04/frame000322.jpg
@@ -2587,7 +2587,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_CricketShot_g09_c07/frame000059.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Surfing_g19_c04/frame000265.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Shotput_g22_c05/frame000069.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g23_c01/frame000269.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g23_c01/frame000006.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Bowling_g11_c06/frame000086.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HorseRace_g24_c04/frame000292.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_StillRings_g23_c01/frame000240.jpg
@@ -2876,7 +2876,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Shotput_g21_c03/frame000107.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g21_c05/frame000239.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingFlute_g24_c03/frame000102.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_GolfSwing_g22_c03/frame000347.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_GolfSwing_g22_c03/frame000007.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BlowDryHair_g23_c04/frame000184.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingGuitar_g25_c02/frame000249.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_MilitaryParade_g12_c02/frame000150.jpg
@@ -2991,7 +2991,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Rowing_g08_c04/frame000280.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_JumpRope_g15_c02/frame000351.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Diving_g11_c04/frame000157.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_VolleyballSpiking_g11_c04/frame000177.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_VolleyballSpiking_g11_c04/frame000009.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g19_c04/frame000278.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_StillRings_g23_c02/frame000249.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g13_c04/frame000250.jpg
@@ -3026,7 +3026,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Biking_g08_c06/frame000239.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BenchPress_g09_c05/frame000062.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BenchPress_g17_c06/frame000116.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g16_c05/frame000307.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g16_c05/frame000003.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HammerThrow_g10_c03/frame000171.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BoxingSpeedBag_g11_c01/frame000236.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Bowling_g25_c02/frame000190.jpg
@@ -3156,7 +3156,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_PushUps_g13_c03/frame000050.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Shotput_g09_c03/frame000081.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BodyWeightSquats_g12_c04/frame000192.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g13_c04/frame000299.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g13_c04/frame000009.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BandMarching_g23_c03/frame000261.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_JumpRope_g16_c04/frame000506.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingDhol_g23_c02/frame000290.jpg
@@ -3204,7 +3204,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_HighJump_g17_c01/frame000133.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingGuitar_g14_c01/frame000249.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_SumoWrestling_g10_c04/frame000265.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g16_c05/frame000470.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g16_c05/frame000007.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_FieldHockeyPenalty_g18_c01/frame000061.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_IceDancing_g23_c05/frame000257.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingPiano_g23_c01/frame000219.jpg
@@ -3262,7 +3262,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Drumming_g08_c05/frame000299.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_WritingOnBoard_g13_c03/frame000110.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BandMarching_g08_c04/frame000101.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_WalkingWithDog_g23_c02/frame000239.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_WalkingWithDog_g23_c02/frame000003.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_SumoWrestling_g22_c04/frame000249.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_JugglingBalls_g22_c02/frame000255.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BoxingPunchingBag_g20_c06/frame000248.jpg
@@ -3284,7 +3284,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Shotput_g20_c04/frame000112.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_SumoWrestling_g20_c02/frame000074.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BalanceBeam_g08_c04/frame000115.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g16_c06/frame000251.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g16_c06/frame000003.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PommelHorse_g08_c03/frame000247.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Surfing_g10_c05/frame000252.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PullUps_g24_c02/frame000191.jpg
@@ -3296,7 +3296,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingCello_g16_c05/frame000194.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Mixing_g22_c03/frame000099.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_SoccerPenalty_g18_c03/frame000079.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_VolleyballSpiking_g22_c01/frame000112.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_VolleyballSpiking_g22_c01/frame000003.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_CricketShot_g08_c01/frame000074.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_RockClimbingIndoor_g08_c02/frame000539.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingDhol_g11_c06/frame000293.jpg
@@ -3375,7 +3375,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Lunges_g10_c05/frame000244.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_CliffDiving_g15_c04/frame000105.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Billiards_g09_c04/frame000286.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_GolfSwing_g21_c05/frame000194.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_GolfSwing_g21_c05/frame000009.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Rowing_g25_c01/frame000416.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HeadMassage_g15_c01/frame000248.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Kayaking_g15_c01/frame000164.jpg
@@ -3404,7 +3404,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_FrisbeeCatch_g11_c04/frame000083.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Diving_g14_c04/frame000202.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Kayaking_g17_c03/frame000173.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g24_c06/frame000299.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g24_c06/frame000003.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_ShavingBeard_g13_c05/frame000163.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingViolin_g20_c01/frame000166.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Haircut_g23_c04/frame000176.jpg
@@ -3415,9 +3415,9 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_HulaHoop_g22_c03/frame000094.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PizzaTossing_g23_c03/frame000147.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_TaiChi_g17_c04/frame000181.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_JumpingJack_g20_c01/frame000119.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_JumpingJack_g20_c01/frame000008.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BenchPress_g16_c03/frame000099.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g16_c02/frame000517.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g16_c02/frame000003.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingFlute_g25_c07/frame000265.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingFlute_g17_c01/frame000143.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_MilitaryParade_g15_c07/frame000157.jpg
@@ -3431,7 +3431,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Rowing_g25_c05/frame000352.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingSitar_g22_c02/frame000249.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Billiards_g21_c06/frame000265.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_HorseRiding_g16_c05/frame000301.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_HorseRiding_g16_c05/frame000009.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HeadMassage_g08_c05/frame000277.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BlowDryHair_g11_c04/frame000517.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HandstandWalking_g19_c03/frame000330.jpg
@@ -3484,7 +3484,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Archery_g21_c01/frame000100.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingDaf_g19_c04/frame000349.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BasketballDunk_g15_c07/frame000079.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_JumpRope_g17_c02/frame000604.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_JumpRope_g17_c02/frame000006.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PullUps_g14_c02/frame000080.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_FrontCrawl_g18_c02/frame000102.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_CricketBowling_g20_c01/frame000127.jpg
@@ -3558,7 +3558,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_UnevenBars_g08_c04/frame000166.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingPiano_g12_c01/frame000214.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BabyCrawling_g23_c04/frame000178.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_HorseRiding_g23_c01/frame000199.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_HorseRiding_g23_c01/frame000003.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Kayaking_g10_c01/frame000164.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BreastStroke_g19_c02/frame000201.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PoleVault_g19_c06/frame000076.jpg
@@ -3673,7 +3673,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_BalanceBeam_g23_c02/frame000088.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_ParallelBars_g12_c02/frame000142.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_ShavingBeard_g08_c02/frame000145.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g12_c03/frame000300.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g12_c03/frame000008.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Lunges_g14_c04/frame000248.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Biking_g11_c06/frame000151.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_SkyDiving_g11_c03/frame000211.jpg
@@ -3901,7 +3901,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Punch_g21_c05/frame000299.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HulaHoop_g17_c04/frame000098.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Shotput_g12_c02/frame000086.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_Biking_g23_c03/frame000449.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_Biking_g23_c03/frame000008.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingCello_g23_c04/frame000209.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingSitar_g13_c03/frame000293.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_JumpRope_g22_c01/frame000197.jpg
@@ -3968,7 +3968,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_JavelinThrow_g19_c04/frame000083.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Biking_g08_c03/frame000200.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_MoppingFloor_g18_c02/frame000109.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_TrampolineJumping_g09_c05/frame000239.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_TrampolineJumping_g09_c05/frame000003.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_IceDancing_g19_c05/frame000251.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Diving_g14_c03/frame000221.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Knitting_g17_c05/frame000129.jpg
@@ -4038,7 +4038,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_BodyWeightSquats_g20_c06/frame000166.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Skiing_g08_c03/frame000197.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HulaHoop_g08_c02/frame000090.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_VolleyballSpiking_g23_c02/frame000119.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_VolleyballSpiking_g23_c02/frame000008.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingSitar_g09_c05/frame000153.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Kayaking_g20_c07/frame000150.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Kayaking_g16_c06/frame000375.jpg
@@ -4191,7 +4191,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_LongJump_g22_c03/frame000121.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Bowling_g13_c06/frame000140.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Hammering_g22_c06/frame000151.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_PoleVault_g14_c04/frame000508.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_PoleVault_g14_c04/frame000001.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BrushingTeeth_g18_c02/frame000307.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g22_c06/frame000217.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_TaiChi_g20_c04/frame000169.jpg
@@ -4246,7 +4246,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g11_c07/frame000093.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HammerThrow_g12_c02/frame000181.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingCello_g12_c07/frame000138.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g12_c05/frame000231.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g12_c05/frame000003.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_MoppingFloor_g17_c02/frame000234.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_CricketShot_g11_c04/frame000105.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_TrampolineJumping_g23_c04/frame000150.jpg
@@ -4400,7 +4400,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_UnevenBars_g15_c06/frame000167.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingCello_g12_c01/frame000158.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BalanceBeam_g23_c05/frame000110.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_JumpRope_g17_c01/frame000622.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_JumpRope_g17_c01/frame000001.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_SumoWrestling_g09_c04/frame000173.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_LongJump_g15_c05/frame000132.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingViolin_g17_c01/frame000175.jpg
@@ -4654,7 +4654,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_HorseRiding_g10_c03/frame000200.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Billiards_g22_c02/frame000165.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_RopeClimbing_g11_c01/frame000100.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g14_c04/frame000239.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g14_c04/frame000005.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_MilitaryParade_g23_c03/frame000117.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingSitar_g09_c02/frame000149.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_CricketShot_g14_c01/frame000104.jpg
@@ -4739,7 +4739,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_BodyWeightSquats_g25_c07/frame000124.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HandstandPushups_g23_c03/frame000210.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_JugglingBalls_g08_c03/frame000253.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_JumpingJack_g20_c03/frame000139.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_JumpingJack_g20_c03/frame000009.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BabyCrawling_g10_c02/frame000115.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_CliffDiving_g18_c07/frame000078.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_SoccerPenalty_g18_c01/frame000070.jpg
@@ -4904,7 +4904,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_SkateBoarding_g09_c01/frame000139.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Bowling_g13_c02/frame000127.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BodyWeightSquats_g20_c01/frame000099.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_JugglingBalls_g18_c04/frame000246.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_JugglingBalls_g18_c04/frame000004.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Bowling_g10_c04/frame000138.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PizzaTossing_g23_c07/frame000201.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HighJump_g23_c02/frame000155.jpg
@@ -4947,10 +4947,10 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_CliffDiving_g19_c01/frame000069.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BabyCrawling_g11_c03/frame000098.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingGuitar_g25_c03/frame000249.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g16_c04/frame000583.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g16_c04/frame000002.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Skijet_g11_c04/frame000209.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingGuitar_g18_c05/frame000249.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g16_c04/frame000095.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g16_c04/frame000004.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_LongJump_g17_c02/frame000155.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingDaf_g15_c04/frame000336.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Diving_g17_c03/frame000152.jpg
@@ -4961,7 +4961,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_LongJump_g24_c02/frame000165.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PushUps_g18_c02/frame000070.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BandMarching_g16_c02/frame000232.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_PlayingTabla_g15_c01/frame000240.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_PlayingTabla_g15_c01/frame000003.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HandstandPushups_g09_c04/frame000074.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_CleanAndJerk_g12_c02/frame000099.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingPiano_g21_c04/frame000216.jpg
@@ -4971,7 +4971,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_ShavingBeard_g17_c04/frame000296.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g15_c05/frame000260.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingGuitar_g08_c02/frame000249.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_Diving_g23_c06/frame000384.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_Diving_g23_c06/frame000002.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Kayaking_g19_c03/frame000180.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Bowling_g22_c01/frame000124.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Fencing_g21_c01/frame000122.jpg
@@ -5090,7 +5090,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_HulaHoop_g16_c01/frame000090.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_VolleyballSpiking_g09_c02/frame000060.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_JavelinThrow_g23_c05/frame000133.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_Biking_g20_c01/frame000331.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_Biking_g20_c01/frame000005.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PoleVault_g13_c01/frame000291.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BaseballPitch_g22_c07/frame000068.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Mixing_g09_c06/frame000100.jpg
@@ -5342,7 +5342,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_SkateBoarding_g22_c03/frame000142.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_RopeClimbing_g10_c04/frame000155.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PoleVault_g11_c01/frame000169.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_GolfSwing_g22_c01/frame000302.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_GolfSwing_g22_c01/frame000007.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BaseballPitch_g13_c01/frame000125.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BlowDryHair_g20_c04/frame000102.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_FrontCrawl_g17_c01/frame000154.jpg
@@ -5351,7 +5351,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_SalsaSpin_g24_c04/frame000167.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BabyCrawling_g22_c01/frame000241.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HulaHoop_g08_c05/frame000100.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g18_c05/frame000145.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g18_c05/frame000004.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingGuitar_g25_c04/frame000249.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BlowingCandles_g25_c04/frame000052.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingSitar_g16_c03/frame000357.jpg
@@ -5408,7 +5408,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Diving_g24_c04/frame000161.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_SkyDiving_g16_c02/frame000212.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Nunchucks_g13_c04/frame000322.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_JumpRope_g17_c04/frame000618.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_JumpRope_g17_c04/frame000008.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_TableTennisShot_g24_c03/frame000249.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_ApplyEyeMakeup_g24_c03/frame000101.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Drumming_g23_c06/frame000299.jpg
@@ -5544,7 +5544,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_HandstandWalking_g09_c03/frame000144.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BandMarching_g14_c01/frame000143.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HandstandWalking_g25_c03/frame000100.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g16_c03/frame000598.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g16_c03/frame000009.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Fencing_g10_c01/frame000144.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BlowDryHair_g18_c02/frame000289.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BoxingPunchingBag_g18_c04/frame000135.jpg
@@ -5614,7 +5614,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_BaseballPitch_g09_c03/frame000072.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_WalkingWithDog_g13_c01/frame000200.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BlowDryHair_g08_c07/frame000429.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g16_c02/frame000598.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g16_c02/frame000001.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_CliffDiving_g18_c04/frame000063.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Drumming_g16_c05/frame000299.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Punch_g22_c04/frame000299.jpg
@@ -5831,7 +5831,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_HandstandPushups_g13_c06/frame000094.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Drumming_g17_c03/frame000299.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Nunchucks_g16_c02/frame000166.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_GolfSwing_g24_c07/frame000148.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_GolfSwing_g24_c07/frame000009.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_LongJump_g10_c07/frame000149.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_MilitaryParade_g19_c03/frame000125.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Rowing_g23_c01/frame000249.jpg
@@ -5860,7 +5860,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Swing_g22_c03/frame000190.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BaseballPitch_g14_c03/frame000096.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PommelHorse_g19_c02/frame000337.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_GolfSwing_g22_c02/frame000299.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_GolfSwing_g22_c02/frame000002.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BodyWeightSquats_g17_c02/frame000173.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_TableTennisShot_g24_c04/frame000258.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BandMarching_g13_c05/frame000177.jpg
@@ -6168,7 +6168,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g17_c04/frame000200.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BoxingPunchingBag_g23_c04/frame000260.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HorseRiding_g22_c06/frame000239.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_JugglingBalls_g18_c03/frame000251.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_JugglingBalls_g18_c03/frame000007.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_WritingOnBoard_g22_c04/frame000136.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Swing_g13_c03/frame000159.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BreastStroke_g25_c01/frame000211.jpg
@@ -6380,7 +6380,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Biking_g24_c06/frame000247.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_CricketBowling_g09_c06/frame000065.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Billiards_g24_c02/frame000255.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g13_c03/frame000314.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g13_c03/frame000006.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Hammering_g10_c05/frame000106.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_WalkingWithDog_g08_c02/frame000239.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PoleVault_g11_c04/frame000198.jpg
@@ -6455,7 +6455,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_FloorGymnastics_g08_c03/frame000159.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Bowling_g08_c04/frame000129.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BenchPress_g25_c07/frame000129.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_BaseballPitch_g08_c01/frame000112.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_BaseballPitch_g08_c01/frame000003.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_SkyDiving_g24_c04/frame000285.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BandMarching_g20_c01/frame000175.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BoxingPunchingBag_g17_c03/frame000111.jpg
@@ -6535,7 +6535,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Knitting_g15_c03/frame000212.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingDaf_g08_c07/frame000335.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g23_c02/frame000239.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_JumpRope_g17_c03/frame000588.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_JumpRope_g17_c03/frame000008.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_ApplyEyeMakeup_g17_c01/frame000115.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Archery_g23_c01/frame000122.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BenchPress_g21_c04/frame000290.jpg
@@ -6799,7 +6799,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_VolleyballSpiking_g09_c04/frame000188.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Hammering_g18_c03/frame000149.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_GolfSwing_g23_c03/frame000148.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g24_c04/frame000095.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g24_c04/frame000003.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_FieldHockeyPenalty_g17_c01/frame000103.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Skijet_g14_c02/frame000209.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingGuitar_g20_c04/frame000249.jpg
@@ -6820,7 +6820,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_JavelinThrow_g25_c02/frame000080.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_JavelinThrow_g15_c06/frame000083.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_VolleyballSpiking_g21_c01/frame000120.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g25_c02/frame000226.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g25_c02/frame000006.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Skiing_g22_c01/frame000169.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Billiards_g24_c05/frame000234.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Archery_g16_c03/frame000205.jpg
@@ -6885,7 +6885,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_PoleVault_g21_c06/frame000114.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingFlute_g21_c03/frame000354.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BalanceBeam_g15_c02/frame000074.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_PlayingTabla_g15_c03/frame000252.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_PlayingTabla_g15_c03/frame000007.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Rowing_g25_c06/frame000365.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_UnevenBars_g15_c02/frame000121.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Typing_g13_c04/frame000096.jpg
@@ -7127,7 +7127,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_SkyDiving_g10_c04/frame000178.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_LongJump_g12_c04/frame000118.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_UnevenBars_g25_c02/frame000158.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g18_c03/frame000179.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g18_c03/frame000007.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_WritingOnBoard_g13_c06/frame000100.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingPiano_g25_c03/frame000215.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Biking_g17_c04/frame000203.jpg
@@ -7143,7 +7143,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Nunchucks_g25_c02/frame000185.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_MoppingFloor_g11_c03/frame000084.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Surfing_g11_c02/frame000254.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_HorseRace_g20_c01/frame000366.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_HorseRace_g20_c01/frame000002.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BoxingPunchingBag_g24_c04/frame000219.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_FrisbeeCatch_g22_c06/frame000081.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_ShavingBeard_g18_c02/frame000296.jpg
@@ -7280,7 +7280,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_TaiChi_g13_c03/frame000170.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_SoccerPenalty_g12_c03/frame000059.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HorseRiding_g10_c06/frame000200.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_GolfSwing_g08_c06/frame000268.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_GolfSwing_g08_c06/frame000005.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_FloorGymnastics_g11_c02/frame000144.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Diving_g08_c02/frame000147.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Lunges_g22_c02/frame000203.jpg
@@ -7316,7 +7316,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g15_c05/frame000173.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_IceDancing_g17_c03/frame000264.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_ThrowDiscus_g12_c02/frame000084.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_WalkingWithDog_g13_c05/frame000119.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_WalkingWithDog_g13_c05/frame000002.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_ThrowDiscus_g12_c05/frame000107.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingSitar_g20_c06/frame000408.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingCello_g25_c05/frame000249.jpg
@@ -7430,7 +7430,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Skijet_g21_c01/frame000187.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_TrampolineJumping_g25_c04/frame000150.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingCello_g20_c06/frame000214.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_Diving_g22_c06/frame000182.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_Diving_g22_c06/frame000003.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HighJump_g22_c01/frame000107.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_GolfSwing_g25_c01/frame000160.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g23_c02/frame000119.jpg
@@ -7558,7 +7558,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_TableTennisShot_g16_c04/frame000258.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingDaf_g20_c05/frame000403.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Mixing_g14_c05/frame000102.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_BaseballPitch_g10_c02/frame000173.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_BaseballPitch_g10_c02/frame000003.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_VolleyballSpiking_g15_c04/frame000085.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_CricketBowling_g18_c04/frame000081.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Nunchucks_g18_c02/frame000271.jpg
@@ -7694,7 +7694,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_RockClimbingIndoor_g11_c03/frame000166.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Nunchucks_g24_c03/frame000199.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BrushingTeeth_g15_c02/frame000195.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g24_c05/frame000359.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g24_c05/frame000001.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_JavelinThrow_g18_c02/frame000070.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Punch_g24_c01/frame000299.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BabyCrawling_g15_c02/frame000220.jpg
@@ -7889,7 +7889,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_BabyCrawling_g13_c06/frame000166.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingCello_g09_c07/frame000269.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_JumpRope_g24_c06/frame000383.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_BaseballPitch_g10_c01/frame000103.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_BaseballPitch_g10_c01/frame000009.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Knitting_g08_c01/frame000160.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_StillRings_g14_c02/frame000167.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingGuitar_g25_c07/frame000249.jpg
@@ -8069,7 +8069,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_StillRings_g22_c02/frame000270.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HeadMassage_g23_c04/frame000148.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingFlute_g09_c07/frame000293.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g12_c01/frame000277.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g12_c01/frame000004.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HulaHoop_g25_c03/frame000090.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Hammering_g10_c04/frame000089.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Punch_g12_c04/frame000299.jpg
@@ -8239,7 +8239,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_GolfSwing_g12_c03/frame000083.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_SoccerPenalty_g12_c01/frame000080.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_ParallelBars_g19_c02/frame000152.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_BaseballPitch_g08_c06/frame000107.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_BaseballPitch_g08_c06/frame000006.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HammerThrow_g09_c06/frame000135.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PommelHorse_g18_c02/frame000255.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingSitar_g08_c05/frame000534.jpg
@@ -8395,7 +8395,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_BreastStroke_g17_c03/frame000152.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HeadMassage_g10_c04/frame000148.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Kayaking_g24_c06/frame000187.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g16_c03/frame000287.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g16_c03/frame000009.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_TableTennisShot_g24_c06/frame000224.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_JugglingBalls_g11_c04/frame000252.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g12_c03/frame000367.jpg
@@ -8406,7 +8406,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g09_c02/frame000119.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Kayaking_g15_c03/frame000150.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BabyCrawling_g22_c02/frame000196.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_HorseRiding_g15_c01/frame000241.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_HorseRiding_g15_c01/frame000005.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Typing_g10_c03/frame000259.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_TrampolineJumping_g16_c04/frame000150.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_IceDancing_g14_c01/frame000261.jpg
@@ -8503,7 +8503,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_WalkingWithDog_g17_c05/frame000239.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_JumpingJack_g16_c02/frame000068.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BaseballPitch_g17_c04/frame000079.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_VolleyballSpiking_g23_c03/frame000207.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_VolleyballSpiking_g23_c03/frame000003.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_ApplyEyeMakeup_g19_c04/frame000130.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Archery_g24_c03/frame000109.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Bowling_g24_c06/frame000074.jpg
@@ -8594,7 +8594,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_FieldHockeyPenalty_g10_c06/frame000140.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingDaf_g08_c04/frame000321.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Drumming_g25_c02/frame000299.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_Kayaking_g13_c02/frame000501.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_Kayaking_g13_c02/frame000003.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BrushingTeeth_g20_c03/frame000170.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_ApplyLipstick_g20_c05/frame000089.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_SumoWrestling_g24_c01/frame000277.jpg
@@ -8971,7 +8971,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_Surfing_g24_c01/frame000248.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PushUps_g23_c02/frame000060.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_LongJump_g21_c03/frame000117.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g20_c02/frame000140.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g20_c02/frame000005.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_SkateBoarding_g21_c02/frame000106.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Archery_g11_c04/frame000257.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Diving_g25_c01/frame000124.jpg
@@ -9064,9 +9064,9 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_TableTennisShot_g10_c02/frame000206.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_YoYo_g19_c06/frame000201.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_YoYo_g18_c04/frame000177.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g09_c04/frame000112.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_TennisSwing_g09_c04/frame000003.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingDhol_g09_c05/frame000322.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g21_c01/frame000415.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_SoccerJuggling_g21_c01/frame000007.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BandMarching_g25_c06/frame000156.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HulaHoop_g18_c02/frame000107.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Drumming_g11_c04/frame000299.jpg
@@ -9397,7 +9397,7 @@
 ../work/ucf101_jpegs_256/jpegs_256/v_PlayingDaf_g16_c02/frame000260.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_JumpingJack_g24_c02/frame000090.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_BabyCrawling_g16_c06/frame000190.jpg
-../work/ucf101_jpegs_256/jpegs_256/v_Biking_g23_c04/frame000449.jpg
+../work/ucf101_jpegs_256/jpegs_256/v_Biking_g23_c04/frame000009.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Basketball_g09_c01/frame000110.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_HammerThrow_g10_c04/frame000236.jpg
 ../work/ucf101_jpegs_256/jpegs_256/v_Haircut_g11_c02/frame000192.jpg
