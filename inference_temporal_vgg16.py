@@ -19,35 +19,34 @@ def np_accuracy(predictions, labels):
 with tf.Graph().as_default():
 
     # SET PATHS
-    work_dir = '../work/ucf101_jpegs_256/jpegs_256/'
+    work_dir = '../work/ucf101_tvl1_flow/tvl1_flow/'
 
     # test_split_path = 'datasets/valid_datasets/ucf101_valid_split1.txt'
-    test_split_path = 'datasets/valid_datasets/ucf101_testlist03.txt'
+    test_split_path = 'datasets/valid_datasets/ucf101_testlist01.txt'
 
     # checkpoint_path = 'checkpoints/finetune_spatial_vgg16_11_06.ckpt'
     # checkpoint_path = 'checkpoints/finetune_spatial_vgg16_split1.ckpt'
-    checkpoint_path = 'checkpoints/finetune_spatial_trainlist01.ckpt'
-    filewriter_path = 'tensorboard_spatial/'
+    checkpoint_path = 'checkpoints/finetune_temporal_trainlist01.ckpt'
+    filewriter_path = 'tensorboard_temporal/'
 
 
-    model_scope = 'spatial_vgg16'
+    model_scope = 'vgg_16'
 
     if not tf.gfile.Exists(filewriter_path):
         tf.gfile.MakeDirs(filewriter_path)
 
     # SET UP CONFIGURATION VARIABLES
     num_samples_per_clip = 20
-    batch_size = 200
+    batch_size = 100
 
-    test_dataset_num_clips = 3750
     test_dataset_num_clips = 100
-    test_dataset_clips_per_split = 50 # test_dataset [50*20*10, 224, 224, 3]
+    test_dataset_clips_per_split = 10 # test_dataset [10*20*10, 224, 224, 3]
     test_dataset_offset = 0
 
     display_step = 1
 
     # PLACEHOLDERS
-    ph_images = tf.placeholder(tf.float32, [batch_size, 224, 224, 3])
+    ph_images = tf.placeholder(tf.float32, [batch_size, 224, 224, 20])
     ph_labels = tf.placeholder(tf.float32, [batch_size, 101])
 
     # Create the model
@@ -110,11 +109,11 @@ with tf.Graph().as_default():
             test_dataset_offset = (dataset_step * test_dataset_clips_per_split) % \
                                    (test_dataset_num_clips - test_dataset_clips_per_split)
 
-            test_dataset, test_labels = ucf101_utils.load_validation_spatial_dataset(batch_size=test_dataset_clips_per_split,
-                                                                                     offset=test_dataset_offset,
-                                                                                     split_dir=test_split_path,
-                                                                                     work_dir=work_dir,
-                                                                                     num_samples=num_samples_per_clip)
+            test_dataset, test_labels = ucf101_utils.load_validation_flow_dataset(batch_size=test_dataset_clips_per_split,
+                                                                                  offset=test_dataset_offset,
+                                                                                  split_dir=test_split_path,
+                                                                                  work_dir=work_dir,
+                                                                                  num_samples=num_samples_per_clip)
 
             print('Validation subset #%d' % dataset_step)
             print('->Image subset: ', test_dataset.shape)
@@ -150,5 +149,5 @@ with tf.Graph().as_default():
             print("Validation Mean Accuracy from subset #%d = %.1f%%" % ((dataset_step + 1), (itest_acc * 100)))
 
         test_acc /= test_count
-        print('Number of batch accuracies: %d (test_count %d)' % ((test_batches_per_epoch * dataset_splits), test_count))
+        print('Number of batch accuracies: %d (test_count %d)' % ((test_batches_per_epoch*dataset_splits), test_count))
         print("Validation Mean Accuracy = %.1f%%" % (test_acc * 100))

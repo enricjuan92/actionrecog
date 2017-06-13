@@ -112,3 +112,6 @@ checkpoints*/
 checkpoints/
 checkpoints_2/
 /checkpoints_2
+tensorboard*/
+*tensorboard*/
+/tensorboard

@@ -1,136 +1,270 @@
-import os, sys, time, glob, math, cv2
-import urllib2 as urllib
+import math
 
-import tensorflow as tf
-import numpy as np
-from scipy.misc import imread, imresize
 import matplotlib
+import numpy as np
+import tensorflow as tf
+
 matplotlib.use('Agg')
 
-import matplotlib.pyplot as plt
-from video_processing import io
-from datasets import imagenet, ucf101_utils
+from datasets.UCF101 import ucf101_utils
 from models.vgg import vgg
 from datetime import datetime
-from preprocessing import vgg_preprocessing
-from tensorflow.python.tools.inspect_checkpoint import print_tensors_in_checkpoint_file
+
+from tensorflow.python.framework import ops
+from tensorflow.python.ops import array_ops
+from tensorflow.python.ops import image_ops_impl
 
 slim = tf.contrib.slim
 
-# PATHs definitions
-VIDEOS_PATH = 'resources/'
-SPATIAL_CKPT = 'checkpoints/spatial_vgg16.ckpt'
-
-def accuracy(predictions, labels):
+def np_accuracy(predictions, labels):
   return (100.0 * np.sum(np.argmax(predictions, 1) == np.argmax(labels, 1))
           / predictions.shape[0])
 
+def softmax(x):
+    y = [math.exp(k) for k in x]
+    sum_y = math.fsum(y)
+    z = [k/sum_y for k in y]
+
+    return z
+
+def flip_left_right(images):
+
+  images = ops.convert_to_tensor(images, name='image')
+  return image_ops_impl.fix_image_flip_shape(images, array_ops.reverse(images, [2]))
+
 with tf.Graph().as_default():
 
-    batch_size = 50
+    # SET PATHS
+    work_dir = '../work/ucf101_jpegs_256/jpegs_256/'
+
+    train_split_path = 'datasets/train_datasets/ucf101_rgb_split1.txt'
+    valid_split_path = 'datasets/valid_datasets/ucf101_rgb_valid.txt'
+
+    checkpoint_path = 'checkpoints/spatial_vgg16.ckpt'
+    save_checkpoint_path = 'checkpoints/finetune_spatial_vgg16_10_06.ckpt'
 
     filewriter_path = 'tensorboard/'
+
     if not tf.gfile.Exists(filewriter_path):
         tf.gfile.MakeDirs(filewriter_path)
 
-    images, labels = ucf101_utils.load_train_dataset(5000)
-    # images = images[2000:2150]
-    # labels = labels[2000:2150]
-    print('Training set')
-    print('\tImage tensor: ', images.shape)
-    print('\tLabels tensor: ', labels.shape)
+    # SET UP CONFIGURATION VARIABLES
 
-    ph_images = tf.placeholder(tf.float32, [batch_size, 224, 224, 3])
-    ph_labels = tf.placeholder(tf.float32, [batch_size, 101])
+    train_layers = ['fc7', 'fc8']
 
-    fc8w = tf.Variable(tf.random_normal(shape=[1, 1, 4096, 101], stddev=0.01), name='spatial_vgg16/fc8/weights')
-    fc8b = tf.Variable(tf.random_normal(shape=[101], stddev=0.01), name='spatial_vgg16/fc8/biases')
+    model_scope = 'spatial_vgg16'
 
+    rgb_mode = 'RGB'
+    flow_mode = 'GRAY'
+    display_step = 1
 
-    # Create the model, fuse the default arg scope to configure the batch norm parameters
+    batch_size = 200
+    # batch_size = 20
+    num_epochs = 50
+    # num_epochs = 2
+    dropout_ratio = 0.9
+    keep_prob = 1 - dropout_ratio
+    starter_learning_rate = 0.001
+
+    train_dataset_total_size = 200000 # 20.000 frames * 10 (data augmentation)
+    train_dataset_batch_size = 2000
+    # train_dataset_batch_size = 200
+
+    valid_dataset_total_size = 60000 # 6.000 frames * 10 (data augmentation)
+    valid_dataset_batch_size = 1000
+    # valid_dataset_batch_size = 100
+
+    global_step = tf.Variable(0, trainable=False)
+
+    # PLACEHOLDERS
+    ph_dataset = tf.placeholder(tf.float32, [batch_size, 224, 224, 3], name='ph_dataset')
+    ph_labels = tf.placeholder(tf.int32, [batch_size, 101], name='ph_labels')
+
+    dataset_batchs = np.floor(train_dataset_total_size / train_dataset_batch_size).astype(np.int16)
+    print('Number of dataset batches: %d' % dataset_batchs)
+
+    # Create the model
     with slim.arg_scope(vgg.vgg_arg_scope()):
-        predictions, _ = vgg.vgg_16(ph_images, num_classes=101, scope='spatial_vgg16')
-        train_prediction = tf.nn.softmax(predictions)
+        # TRAINING
+        scores, _ = vgg.vgg_16(inputs=ph_dataset,
+                               num_classes=101,
+                               dropout_keep_prob=keep_prob,
+                               is_training=True,
+                               scope=model_scope)
+        probabilities = tf.nn.softmax(logits=scores)
 
-    print('Specify the loss function:')
-    loss = tf.losses.softmax_cross_entropy(onehot_labels=ph_labels, logits=predictions)
-    total_loss = tf.losses.get_total_loss()
+    for dataset_step in range(dataset_batchs):
 
-    # Add the loss to summary
-    tf.summary.scalar('losses/loss', loss)
-    tf.summary.scalar('losses/total_loss', total_loss)
+        if dataset_step != 0:
+            checkpoint_path = save_checkpoint_path
 
-    # Specify the optimization scheme:
-    print('Computing gradient ...')
-    optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.001).minimize(total_loss)
+        learning_rate = tf.train.exponential_decay(learning_rate=starter_learning_rate,
+                                                   global_step=global_step,
+                                                   decay_steps=4000,
+                                                   decay_rate=0.96,
+                                                   staircase=True)
 
-    # Get list of variables to restore
-    variables_to_restore = tf.contrib.framework.get_variables_to_restore(exclude=['spatial_vgg16/fc8/weights',
-                                                                                  'spatial_vgg16/fc8/biases'])
+        train_dataset_offset = (dataset_step * train_dataset_batch_size) % \
+                               (train_dataset_total_size - train_dataset_batch_size)
 
-    # Add ops to restore all the variables.
-    init_assign_op =  tf.contrib.framework.assign_from_checkpoint_fn(model_path=SPATIAL_CKPT,
-                                                                     var_list=variables_to_restore,
-                                                                     ignore_missing_vars=True)
-    print('Restore variables from checkpoint.')
-    init_var_op = tf.variables_initializer(var_list=[fc8w, fc8b])
+        valid_dataset_offset = (dataset_step * valid_dataset_batch_size) % \
+                               (valid_dataset_total_size - valid_dataset_batch_size)
 
-    # Merge all summaries together
-    merged_summary = tf.summary.merge_all()
+        print('train_dataset from %d to %d' %(train_dataset_offset, train_dataset_offset + train_dataset_batch_size))
+        print('valid_dataset from %d to %d' % (valid_dataset_offset, valid_dataset_offset + valid_dataset_batch_size))
 
-    # Initialize the FileWriter
-    writer = tf.summary.FileWriter(filewriter_path)
+        # Array allocation
+        train_dataset, train_labels = ucf101_utils.load_train_dataset(batch_size=train_dataset_batch_size,
+                                                                      offset=train_dataset_offset,
+                                                                      split_dir=train_split_path,
+                                                                      work_dir=work_dir,
+                                                                      mode=rgb_mode)
 
-    # Initialize an saver for store model checkpoints
-    saver = tf.train.Saver()
+        train_dataset, train_labels = ucf101_utils.randomize(train_dataset, train_labels)
 
-    num_steps = 9500
+        print('Training set')
+        print('Image tensor: ', train_dataset.shape)
+        print('Labels tensor: ', train_labels.shape)
 
-    train_batches_per_epoch = np.floor(len(images) / batch_size).astype(np.int16)
-    # num_steps = train_batches_per_epoch
+        valid_dataset, valid_labels = ucf101_utils.load_train_dataset(batch_size=valid_dataset_batch_size,
+                                                                      offset=valid_dataset_offset,
+                                                                      split_dir=valid_split_path,
+                                                                      work_dir=work_dir,
+                                                                      mode=rgb_mode)
 
-    with tf.Session() as sess:
+        print('Validation set')
+        print('Image tensor: ', valid_dataset.shape)
+        print('Labels tensor: ', valid_labels.shape)
 
-        tf.global_variables_initializer().run()
-        print('Fc8 layer initialized.')
+        train_batches_per_epoch = np.floor(train_dataset.shape[0] / batch_size).astype(np.int16)
+        valid_batches_per_epoch = np.floor(valid_dataset.shape[0] / batch_size).astype(np.int16)
 
-        # Add the model graph to TensorBoard
-        writer.add_graph(sess.graph)
+        print('Train batches per epoch: %d' % train_batches_per_epoch)
+        print('Valid batches per epoch: %d' % valid_batches_per_epoch)
+        print('Batch size: %d. Number of Epochs: %d' % (batch_size, num_epochs))
 
-        init_assign_op(sess)
-        print('Model initialized.')
+        # List of trainable variables of the layers we want to train
+        var_list = [v for v in tf.trainable_variables() if v.name.split('/')[1] in train_layers]
+        print(var_list)
+        # Op for calculating the loss
+        with tf.name_scope('cross_ent'):
 
-        print("{} Start training...".format(datetime.now()))
-        print("{} Open Tensorboard at --logdir {}".format(datetime.now(), filewriter_path))
+            print('Specify the loss function:')
+            loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=ph_labels, logits=scores))
+            print(scores.shape, loss.shape)
+            # loss = tf.losses.softmax_cross_entropy(onehot_labels=ph_labels, logits=scores)
+            total_loss = tf.losses.get_total_loss()
 
-        for step in range(num_steps):
+        # Add the loss to summary
+        tf.summary.scalar('losses/loss', loss)
+        tf.summary.scalar('losses/total_loss', total_loss)
 
-            offset = (step * batch_size) % (labels.shape[0] - batch_size)
-            start = offset
-            end = (offset + batch_size)
+        # Train op: specify the optimization scheme
+        with tf.name_scope('train'):
 
-            # Generate a minibatch.
-            batch_data = images[start:end, :]
-            batch_labels = labels[start:end, :]
+            print('Computing gradient ...')
+            optimizer = tf.train.MomentumOptimizer(learning_rate=learning_rate, momentum=0.9)
+            train_op = optimizer.minimize(loss=loss,
+                                          var_list=var_list,
+                                          global_step=global_step)
 
-            feed_dict = {ph_images: batch_data, ph_labels: batch_labels}
+        # Add the variables we train to the summary
+        for var in var_list:
+            tf.summary.histogram(var.name, var)
 
-            _, l, predictions = sess.run([optimizer, total_loss, train_prediction], feed_dict=feed_dict)
+        # Get list of variables to restore
+        variables_to_restore = tf.contrib.framework.get_variables_to_restore(exclude=train_layers)
 
-            # Generate summary with the current batch of data and write to file
-            if step % 1 == 0:
-                s = sess.run(merged_summary, feed_dict=feed_dict)
-                writer.add_summary(s, train_batches_per_epoch + step)
+        # Add ops to restore all the variables.
+        init_assign_op =  tf.contrib.framework.assign_from_checkpoint_fn(model_path=checkpoint_path,
+                                                                         var_list=variables_to_restore,
+                                                                         ignore_missing_vars=True)
+        print('Restore variables from checkpoint.')
 
-            if (step % 25 == 0):
-                print('Step: %d From: %d To: %d' % (step, start, end))
-                print("Minibatch loss at step %d: %f" % (step, l))
-                print("Minibatch accuracy: %.1f%%" % accuracy(predictions, batch_labels))
+        # init_var_op = tf.variables_initializer(var_list=var_list)
+        # Evaluation op: Accuracy of the model
+        correct_pred = tf.equal(tf.argmax(probabilities, 1), tf.argmax(ph_labels, 1))
+        accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
 
-            if (step % 500 == 0):
-                checkpoint_name = 'checkpoints/finetuning_spatial_vgg16_2.ckpt'
-                save_path = saver.save(sess, checkpoint_name)
-                print("{} Model checkpoint saved at {}".format(datetime.now(), checkpoint_name))
+        # Add the accuracy to the summary
+        tf.summary.scalar('accuracy', accuracy)
 
+        # Merge all summaries together
+        merged_summary = tf.summary.merge_all()
+
+        # Initialize the FileWriter
+        writer = tf.summary.FileWriter(filewriter_path)
+
+        # Initialize an saver for store model checkpoints
+        saver = tf.train.Saver()
+
+        with tf.Session() as sess:
+
+            # Initialize all variables
+            tf.global_variables_initializer().run()
+
+            # Add the model graph to TensorBoard
+            writer.add_graph(sess.graph)
+
+            init_assign_op(sess)
+            print('Model initialized.')
+
+            print("{} Start training...".format(datetime.now()))
+            print("{} Open Tensorboard at --logdir {}".format(datetime.now(), filewriter_path))
+
+            for epoch in range(num_epochs):
+
+                print("{} Start Training".format(datetime.now()))
+
+                for step in range(train_batches_per_epoch):
+
+                    offset = (step * batch_size) % (train_labels.shape[0] - batch_size)
+                    start = offset
+                    end = (start + batch_size)
+
+                    # Generate a minibatch.
+                    batch_data = train_dataset[start:end, :, :, :]
+                    batch_labels = train_labels[start:end, :]
+
+                    feed_dict = {ph_dataset: batch_data, ph_labels: batch_labels}
+
+                    lr, _, l, predictions = sess.run([learning_rate, train_op, loss, scores], feed_dict=feed_dict)
+
+                    if ((step + 1) % display_step == 0 and step != 0):
+                        # Generate summary with the current batch of data and write to file
+                        s = sess.run(merged_summary, feed_dict=feed_dict)
+                        writer.add_summary(s, epoch * train_batches_per_epoch + (step + 1))
+
+                    if ((step + 1) % 10 == 0):
+
+                        print('Learning rate: %.12f' % lr)
+                        print('Epoch: %d. Step: %d From: %d To: %d' % (epoch, (step + 1), start, end))
+                        print("Minibatch loss at step %d: %f" % ((step + 1), l))
+                        print("Minibatch accuracy: %.1f%%" %  np_accuracy(predictions, batch_labels))
+
+                print("{} Start validation".format(datetime.now()))
+                test_acc = 0.
+                test_count = 0
+
+                for step in range(valid_batches_per_epoch):
+
+                    offset = (step * batch_size) % (valid_labels.shape[0] - batch_size)
+                    start = offset
+                    end = (offset + batch_size)
+
+                    batch_data = valid_dataset[start:end, :, :, :]
+                    batch_labels = valid_labels[start:end, :]
+
+                    feed_dict = {ph_dataset: batch_data, ph_labels: batch_labels}
+                    acc = sess.run(accuracy, feed_dict=feed_dict)
+
+                    test_acc += acc
+                    test_count += 1
+
+                test_acc /= test_count
+                print("Mean Validation Accuracy = %.1f%%" % (test_acc * 100))
+
+                save_path = saver.save(sess, save_checkpoint_path)
+                print("{} Model checkpoint saved at {}".format(datetime.now(), save_checkpoint_path))
 
     print('Finished training. Last batch loss %f' % l)

@@ -23,49 +23,49 @@ def np_accuracy(predictions, labels):
 with tf.Graph().as_default():
 
     # SET PATHS
-    work_dir = '../work/ucf101_jpegs_256/jpegs_256/'
+    work_dir = '../work/ucf101_tvl1_flow/tvl1_flow/'
 
     train_split_path = 'datasets/train_datasets/ucf101_trainlist01.txt'
     # train_split_path = 'datasets/train_datasets/ucf101_train_split1.txt'
     valid_split_path = 'datasets/valid_datasets/ucf101_testlist01.txt'
     # valid_split_path = 'datasets/valid_datasets/ucf101_valid_split1.txt'
 
-    checkpoint_path = 'checkpoints/spatial_vgg16.ckpt'
-    # checkpoint_path = 'checkpoints/finetune_spatial_vgg16_split1.ckpt'
-    # checkpoint_path = 'checkpoints/finetune_spatial_trainlist01.ckpt'
-    # checkpoint_path = 'checkpoints/finetune_spatial_vgg16_11_06.ckpt'
-    # save_checkpoint_path = 'checkpoints/finetune_spatial_trainlist01.ckpt'
-    save_checkpoint_path = 'checkpoints/finetune_spatial_trainlist01_13_06.ckpt'
-    # save_checkpoint_path = 'checkpoints/finetune_spatial_vgg16_split1.ckpt'
+    checkpoint_path = 'checkpoints/temporal_vgg16.ckpt'
+    save_checkpoint_path = 'checkpoints/finetune_temporal_trainlist01.ckpt'
 
-    filewriter_path = 'tensorboard_spatial/'
+    filewriter_path = 'tensorboard_temporal/'
 
     if not tf.gfile.Exists(filewriter_path):
         tf.gfile.MakeDirs(filewriter_path)
 
+    # from tensorflow.python.tools.inspect_checkpoint import print_tensors_in_checkpoint_file
+    # print_tensors_in_checkpoint_file(file_name='checkpoints/temporal_vgg16.ckpt', tensor_name=None, all_tensors=False)
+
     # SET UP CONFIGURATION VARIABLES
     train_layers = ['fc8']
-    model_scope = 'spatial_vgg16'
+    model_scope = 'vgg_16'
 
     display_step = 1
 
     num_samples_per_clip = 1
-    batch_size = 200
-    num_epochs = 35
+    batch_size = 100
+    num_epochs = 10
 
-    dropout_ratio = 0.8
+    dropout_ratio = 0.9
     keep_prob = 1 - dropout_ratio
-    starter_learning_rate = 0.001
-    decay_steps = 4000
+    starter_learning_rate = 0.005
+    decay_steps = 8000
 
     # train_dataset.shape [9400, 224, 224, 3]
-    train_dataset_num_clips = 9400 # real = 200k frames -> 4k clips * 5 (samples per clip) * 10 (data aug.)
+    train_dataset_num_clips = 9500 # real = 200k frames -> 4k clips * 5 (samples per clip) * 10 (data aug.)
+    train_dataset_clips_per_split = 500
+
     valid_dataset_num_clips = 440 # real = 44k -> 440 frames * 20 (#samples) * 10 (data aug.)
 
     global_step = tf.Variable(0, trainable=False)
 
     # PLACEHOLDERS
-    ph_dataset = tf.placeholder(tf.float32, [batch_size, 224, 224, 3], name='ph_dataset')
+    ph_dataset = tf.placeholder(tf.float32, [batch_size, 224, 224, 20], name='ph_dataset')
     ph_labels = tf.placeholder(tf.int32, [batch_size, 101], name='ph_labels')
 
     learning_rate = tf.train.exponential_decay(learning_rate=starter_learning_rate,
@@ -124,6 +124,7 @@ with tf.Graph().as_default():
     print('Restore variables from checkpoint.')
 
     # init_var_op = tf.variables_initializer(var_list=var_list)
+
     # Evaluation op: Accuracy of the model
     correct_pred = tf.equal(tf.argmax(probabilities, 1), tf.argmax(ph_labels, 1))
     accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
@@ -152,23 +153,29 @@ with tf.Graph().as_default():
         print('Model initialized.')
         print("{} Open Tensorboard at --logdir {}".format(datetime.now(), filewriter_path))
 
-        for i in range(5):
+        dataset_splits = np.floor(train_dataset_num_clips / train_dataset_clips_per_split).astype(np.int16)
+        print('Number of dataset splits: %d' % dataset_splits)
+
+        for dataset_step in range(dataset_splits):
+
+            train_dataset_offset = (dataset_step * train_dataset_clips_per_split) % \
+                                  (train_dataset_num_clips - train_dataset_clips_per_split)
 
             # Array allocation
-            train_dataset, train_labels = ucf101_utils.load_train_spatial_dataset(batch_size=train_dataset_num_clips,
-                                                                                  offset=0,
-                                                                                  split_dir=train_split_path,
-                                                                                  work_dir=work_dir,
-                                                                                  num_samples=num_samples_per_clip)
-            # train_dataset [4000, 224, 224, 3]
+            train_dataset, train_labels = ucf101_utils.load_train_flow_dataset(batch_size=train_dataset_clips_per_split,
+                                                                               offset=train_dataset_offset,
+                                                                               split_dir=train_split_path,
+                                                                               work_dir=work_dir,
+                                                                               num_samples=num_samples_per_clip)
+            # train_dataset [500, 224, 224, 3]
             train_dataset, train_labels = ucf101_utils.randomize(train_dataset, train_labels)
 
             train_batches_per_epoch = np.floor(train_dataset.shape[0] / batch_size).astype(np.int16)
             print('Train batches per epoch: %d' % train_batches_per_epoch)
 
-            print('Training set')
-            print('Image tensor: ', train_dataset.shape)
-            print('Labels tensor: ', train_labels.shape)
+            print('Training subset #%d' % dataset_step)
+            print('->Image subset: ', train_dataset.shape)
+            print('->Labels subset: ', train_labels.shape)
 
             print("{} Start Training".format(datetime.now()))
 
@@ -193,56 +200,12 @@ with tf.Graph().as_default():
                         s = sess.run(merged_summary, feed_dict=feed_dict)
                         writer.add_summary(s, epoch * train_batches_per_epoch + (step + 1))
 
-                    if ((step + 1) % 5 == 0):
+                    if ((step + 1) % 4 == 0):
 
                         print('Learning rate: %.12f' % lr)
                         print('Epoch: %d. Step: %d From: %d To: %d' % (epoch, (step + 1), start, end))
                         print("Minibatch loss at step %d: %f" % ((step + 1), l))
                         print("Minibatch accuracy: %.1f%%" %  np_accuracy(predictions, batch_labels))
-
-                    # if dataset_step == (dataset_batchs - 1):
-                    #
-                    #     # VALIDATION
-                    #     print("{} Start validation".format(datetime.now()))
-                    #     test_acc = 0.
-                    #     test_count = 0
-                    #
-                    #     # valid_dataset_offset = (dataset_step * valid_dataset_batch_size) % \
-                    #     #                        (valid_dataset_num_clips - valid_dataset_batch_size)
-                    #     valid_dataset_offset = 0
-                    #
-                    #     print('valid_dataset from %d to %d' % \
-                    #           (valid_dataset_offset, valid_dataset_offset + valid_dataset_batch_size))
-                    #
-                    #     valid_dataset, valid_labels = ucf101_utils.load_spatial_dataset(batch_size=valid_dataset_batch_size,
-                    #                                                                     offset=valid_dataset_offset,
-                    #                                                                     split_dir=valid_split_path,
-                    #                                                                     work_dir=work_dir,
-                    #                                                                     num_samples=num_samples_per_clip)
-                    #     print('Validation set')
-                    #     print('Image tensor: ', valid_dataset.shape)
-                    #     print('Labels tensor: ', valid_labels.shape)
-                    #
-                    #     valid_batches_per_epoch = np.floor(valid_dataset.shape[0] / batch_size).astype(np.int16)
-                    #     print('Valid batches per epoch: %d' % valid_batches_per_epoch)
-                    #
-                    #     for step in range(valid_batches_per_epoch):
-                    #
-                    #         offset = (step * batch_size) % (valid_labels.shape[0] - batch_size)
-                    #         start = offset
-                    #         end = (offset + batch_size)
-                    #
-                    #         batch_data = valid_dataset[start:end, :, :, :]
-                    #         batch_labels = valid_labels[start:end, :]
-                    #
-                    #         feed_dict = {ph_dataset: batch_data, ph_labels: batch_labels}
-                    #         acc = sess.run(accuracy, feed_dict=feed_dict)
-                    #
-                    #         test_acc += acc
-                    #         test_count += 1
-                    #
-                    #     test_acc /= test_count
-                    #     print("Mean Validation Accuracy = %.1f%%" % (test_acc * 100))
 
                 save_path = saver.save(sess, save_checkpoint_path)
                 print("{} Model checkpoint saved at {}".format(datetime.now(), save_checkpoint_path))
