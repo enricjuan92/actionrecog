@@ -26,7 +26,7 @@ with tf.Graph().as_default():
 
     # checkpoint_path = 'checkpoints/finetune_spatial_vgg16_11_06.ckpt'
     # checkpoint_path = 'checkpoints/finetune_spatial_vgg16_split1.ckpt'
-    checkpoint_path = 'checkpoints/finetune_temporal_trainlist01.ckpt'
+    checkpoint_path = 'checkpoints/finetune_temporal_trainlist01_1.ckpt'
     filewriter_path = 'tensorboard_temporal/'
 
 
@@ -36,8 +36,8 @@ with tf.Graph().as_default():
         tf.gfile.MakeDirs(filewriter_path)
 
     # SET UP CONFIGURATION VARIABLES
-    num_samples_per_clip = 20
-    batch_size = 100
+    num_samples_per_clip = 18
+    batch_size = 180
 
     test_dataset_num_clips = 100
     test_dataset_clips_per_split = 10 # test_dataset [10*20*10, 224, 224, 3]
@@ -115,7 +115,7 @@ with tf.Graph().as_default():
                                                                                   work_dir=work_dir,
                                                                                   num_samples=num_samples_per_clip)
 
-            print('Validation subset #%d' % dataset_step)
+            print('Validation subset #%d' % (dataset_step + 1))
             print('->Image subset: ', test_dataset.shape)
             print('->Labels subset: ', test_labels.shape)
 

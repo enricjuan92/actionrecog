@@ -863,6 +863,7 @@ def load_train_flow_dataset(batch_size, offset, split_dir, work_dir, num_samples
         max_frames = int(duration[ind])
 
         start_frame = np.random.randint(0, (max_frames-(optical_flow_frames + 1)))
+        start_frame = 0
 
         step = int(math.floor((max_frames - optical_flow_frames + 1) / num_samples))
         flow = np.zeros(shape=dims, dtype=np.float32)

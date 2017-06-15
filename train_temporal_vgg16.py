@@ -25,13 +25,14 @@ with tf.Graph().as_default():
     # SET PATHS
     work_dir = '../work/ucf101_tvl1_flow/tvl1_flow/'
 
-    train_split_path = 'datasets/train_datasets/ucf101_trainlist01.txt'
+    train_split_path = 'datasets/train_datasets/ucf101_trainlist02.txt'
     # train_split_path = 'datasets/train_datasets/ucf101_train_split1.txt'
     valid_split_path = 'datasets/valid_datasets/ucf101_testlist01.txt'
     # valid_split_path = 'datasets/valid_datasets/ucf101_valid_split1.txt'
 
     checkpoint_path = 'checkpoints/temporal_vgg16.ckpt'
-    save_checkpoint_path = 'checkpoints/finetune_temporal_trainlist01.ckpt'
+    checkpoint_path = 'checkpoints/finetune_temporal_trainlist01.ckpt'
+    save_checkpoint_path = 'checkpoints/finetune_temporal_trainlist02.ckpt'
 
     filewriter_path = 'tensorboard_temporal/'
 
@@ -48,19 +49,17 @@ with tf.Graph().as_default():
     display_step = 1
 
     num_samples_per_clip = 1
-    batch_size = 100
-    num_epochs = 10
+    batch_size = 180
+    num_epochs = 60
 
-    dropout_ratio = 0.9
+    dropout_ratio = 0.7
     keep_prob = 1 - dropout_ratio
-    starter_learning_rate = 0.005
-    decay_steps = 8000
+    starter_learning_rate = 0.001
+    decay_steps = 17*30
 
     # train_dataset.shape [9400, 224, 224, 3]
-    train_dataset_num_clips = 9500 # real = 200k frames -> 4k clips * 5 (samples per clip) * 10 (data aug.)
-    train_dataset_clips_per_split = 500
-
-    valid_dataset_num_clips = 440 # real = 44k -> 440 frames * 20 (#samples) * 10 (data aug.)
+    train_dataset_num_clips = 9180 # real = 9k clips * 5 (samples per clip) * 10 (data aug.)
+    train_dataset_clips_per_split = 3060
 
     global_step = tf.Variable(0, trainable=False)
 
@@ -68,10 +67,13 @@ with tf.Graph().as_default():
     ph_dataset = tf.placeholder(tf.float32, [batch_size, 224, 224, 20], name='ph_dataset')
     ph_labels = tf.placeholder(tf.int32, [batch_size, 101], name='ph_labels')
 
+    training_step = tf.Variable(0, trainable=False)
+    increment_train_step_op = tf.assign(training_step, training_step + 1)
+
     learning_rate = tf.train.exponential_decay(learning_rate=starter_learning_rate,
-                                               global_step=global_step,
+                                               global_step=training_step,
                                                decay_steps=decay_steps,
-                                               decay_rate=0.96,
+                                               decay_rate=0.75,
                                                staircase=True)
 
     # Create the model
@@ -114,8 +116,8 @@ with tf.Graph().as_default():
         tf.summary.histogram(var.name, var)
 
     # Get list of variables to restore
-    variables_to_restore = tf.contrib.framework.get_variables_to_restore(exclude=train_layers)
-    # variables_to_restore = tf.contrib.framework.get_variables_to_restore(exclude=[])
+    # variables_to_restore = tf.contrib.framework.get_variables_to_restore(exclude=train_layers)
+    variables_to_restore = tf.contrib.framework.get_variables_to_restore(exclude=[])
 
     # Add ops to restore all the variables.
     init_assign_op =  tf.contrib.framework.assign_from_checkpoint_fn(model_path=checkpoint_path,
@@ -123,7 +125,7 @@ with tf.Graph().as_default():
                                                                      ignore_missing_vars=True)
     print('Restore variables from checkpoint.')
 
-    # init_var_op = tf.variables_initializer(var_list=var_list)
+    init_var_op = tf.variables_initializer(var_list=[training_step])
 
     # Evaluation op: Accuracy of the model
     correct_pred = tf.equal(tf.argmax(probabilities, 1), tf.argmax(ph_labels, 1))
@@ -144,7 +146,8 @@ with tf.Graph().as_default():
     with tf.Session() as sess:
 
         # Initialize all variables
-        tf.global_variables_initializer().run()
+        # tf.global_variables_initializer().run()
+        sess.run(init_var_op)
 
         # Add the model graph to TensorBoard
         writer.add_graph(sess.graph)
@@ -161,13 +164,12 @@ with tf.Graph().as_default():
             train_dataset_offset = (dataset_step * train_dataset_clips_per_split) % \
                                   (train_dataset_num_clips - train_dataset_clips_per_split)
 
-            # Array allocation
             train_dataset, train_labels = ucf101_utils.load_train_flow_dataset(batch_size=train_dataset_clips_per_split,
                                                                                offset=train_dataset_offset,
                                                                                split_dir=train_split_path,
                                                                                work_dir=work_dir,
                                                                                num_samples=num_samples_per_clip)
-            # train_dataset [500, 224, 224, 3]
+
             train_dataset, train_labels = ucf101_utils.randomize(train_dataset, train_labels)
 
             train_batches_per_epoch = np.floor(train_dataset.shape[0] / batch_size).astype(np.int16)
@@ -200,12 +202,14 @@ with tf.Graph().as_default():
                         s = sess.run(merged_summary, feed_dict=feed_dict)
                         writer.add_summary(s, epoch * train_batches_per_epoch + (step + 1))
 
-                    if ((step + 1) % 4 == 0):
+                    if ((step + 1) % 2 == 0):
 
                         print('Learning rate: %.12f' % lr)
                         print('Epoch: %d. Step: %d From: %d To: %d' % (epoch, (step + 1), start, end))
                         print("Minibatch loss at step %d: %f" % ((step + 1), l))
                         print("Minibatch accuracy: %.1f%%" %  np_accuracy(predictions, batch_labels))
+
+                    sess.run(increment_train_step_op)
 
                 save_path = saver.save(sess, save_checkpoint_path)
                 print("{} Model checkpoint saved at {}".format(datetime.now(), save_checkpoint_path))
