@@ -3,6 +3,7 @@ import math
 import matplotlib
 import numpy as np
 import tensorflow as tf
+import scipy.io as sio
 
 matplotlib.use('Agg')
 
@@ -25,14 +26,14 @@ with tf.Graph().as_default():
     # SET PATHS
     work_dir = '../work/ucf101_tvl1_flow/tvl1_flow/'
 
-    train_split_path = 'datasets/train_datasets/ucf101_trainlist02.txt'
+    train_split_path = 'datasets/train_datasets/ucf101_trainlist03.txt'
     # train_split_path = 'datasets/train_datasets/ucf101_train_split1.txt'
     valid_split_path = 'datasets/valid_datasets/ucf101_testlist01.txt'
     # valid_split_path = 'datasets/valid_datasets/ucf101_valid_split1.txt'
 
     checkpoint_path = 'checkpoints/temporal_vgg16.ckpt'
-    checkpoint_path = 'checkpoints/finetune_temporal_trainlist01.ckpt'
-    save_checkpoint_path = 'checkpoints/finetune_temporal_trainlist02.ckpt'
+    checkpoint_path = 'checkpoints/finetune_temporal_trainlist03.ckpt'
+    save_checkpoint_path = 'checkpoints/finetune_temporal_trainlist03.ckpt'
 
     filewriter_path = 'tensorboard_temporal/'
 
@@ -50,12 +51,12 @@ with tf.Graph().as_default():
 
     num_samples_per_clip = 1
     batch_size = 180
-    num_epochs = 60
+    num_epochs = 20
 
-    dropout_ratio = 0.7
+    dropout_ratio = 0.8
     keep_prob = 1 - dropout_ratio
     starter_learning_rate = 0.001
-    decay_steps = 17*30
+    decay_steps = 17*30*5
 
     # train_dataset.shape [9400, 224, 224, 3]
     train_dataset_num_clips = 9180 # real = 9k clips * 5 (samples per clip) * 10 (data aug.)
@@ -116,8 +117,8 @@ with tf.Graph().as_default():
         tf.summary.histogram(var.name, var)
 
     # Get list of variables to restore
-    # variables_to_restore = tf.contrib.framework.get_variables_to_restore(exclude=train_layers)
-    variables_to_restore = tf.contrib.framework.get_variables_to_restore(exclude=[])
+    variables_to_restore = tf.contrib.framework.get_variables_to_restore(exclude=train_layers)
+    # variables_to_restore = tf.contrib.framework.get_variables_to_restore(exclude=[])
 
     # Add ops to restore all the variables.
     init_assign_op =  tf.contrib.framework.assign_from_checkpoint_fn(model_path=checkpoint_path,
@@ -146,8 +147,12 @@ with tf.Graph().as_default():
     with tf.Session() as sess:
 
         # Initialize all variables
-        # tf.global_variables_initializer().run()
+        tf.global_variables_initializer().run()
         sess.run(init_var_op)
+
+        d = sio.loadmat('ucf101-TVL1flow-vgg16-split1.mat')
+        sess.run(var_list[0].assign(d['net'].item(0)[1].item(30)[1]))
+        sess.run(var_list[1].assign(np.squeeze(d['net'].item(0)[1].item(31)[1])))
 
         # Add the model graph to TensorBoard
         writer.add_graph(sess.graph)

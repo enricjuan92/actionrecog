@@ -11,7 +11,7 @@
 import tensorflow as tf
 import numpy as np
 from scipy.misc import imread, imresize
-from labels import imagenet_classes
+import scipy.io as sio
 
 slim = tf.contrib.slim
 
@@ -27,7 +27,7 @@ class vgg16:
 
         self.convlayers()
         self.fc_layers()
-        self.probs = tf.nn.softmax(self.fc3l)
+        # self.probs = tf.nn.softmax(self.fc3l)
         if weights is not None and sess is not None:
             self.load_weights(weights, sess)
 
@@ -221,83 +221,84 @@ class vgg16:
     def fc_layers(self):
 
         # fc1
-        shape = int(np.prod(self.pool5.get_shape()[1:]))
+        # shape = int(np.prod(self.pool5.get_shape()[1:]))
 
         with tf.name_scope('temporal_vgg16/fc6') as scope:
-            fc1w = tf.Variable(tf.truncated_normal([shape, 4096], dtype=tf.float32, stddev=1e-1), name='old_weights')
+            # fc1w = tf.Variable(tf.truncated_normal([shape, 4096], dtype=tf.float32, stddev=1e-1), name='old_weights')
+            fc1w = tf.Variable(tf.truncated_normal([7, 7, 512, 4096], dtype=tf.float32, stddev=1e-1), name='weights')
             fc1b = tf.Variable(tf.constant(1.0, shape=[4096], dtype=tf.float32), trainable=True, name='biases')
 
-        pool5_flat = tf.reshape(self.pool5, [-1, shape])
-        fc1l = tf.nn.bias_add(tf.matmul(pool5_flat, fc1w), fc1b)
-        self.fc1 = tf.nn.relu(fc1l)
+        # pool5_flat = tf.reshape(self.pool5, [-1, shape])
+        # fc1l = tf.nn.bias_add(tf.matmul(pool5_flat, fc1w), fc1b)
+        # self.fc1 = tf.nn.relu(fc1l)
         self.parameters += [fc1w, fc1b]
 
         # fc2
         with tf.name_scope('temporal_vgg16/fc7') as scope:
-            fc2w = tf.Variable(tf.truncated_normal([4096, 4096], dtype=tf.float32, stddev=1e-1), name='old_weights')
+            fc2w = tf.Variable(tf.truncated_normal([1, 1, 4096, 4096], dtype=tf.float32, stddev=1e-1), name='weights')
             fc2b = tf.Variable(tf.constant(1.0, shape=[4096], dtype=tf.float32), trainable=True, name='biases')
 
-        fc2l = tf.nn.bias_add(tf.matmul(self.fc1, fc2w), fc2b)
-        self.fc2 = tf.nn.relu(fc2l)
+        # fc2l = tf.nn.bias_add(tf.matmul(self.fc1, fc2w), fc2b)
+        # self.fc2 = tf.nn.relu(fc2l)
         self.parameters += [fc2w, fc2b]
 
         # fc3
         with tf.name_scope('temporal_vgg16/fc8') as scope:
-            fc3w = tf.Variable(tf.truncated_normal([4096, 101], dtype=tf.float32, stddev=1e-1), name='old_weights')
+            fc3w = tf.Variable(tf.truncated_normal([1, 1, 4096, 101], dtype=tf.float32, stddev=1e-1), name='weights')
             fc3b = tf.Variable(tf.constant(1.0, shape=[101], dtype=tf.float32), trainable=True, name='biases')
 
-        self.fc3l = tf.nn.bias_add(tf.matmul(self.fc2, fc3w), fc3b)
+        # self.fc3l = tf.nn.bias_add(tf.matmul(self.fc2, fc3w), fc3b)
         self.parameters += [fc3w, fc3b]
 
-    def load_weights(self, weight_file, sess):
-
-        weights = np.load(weight_file)
-        items = weights[()].items()
-
-        for i, j in enumerate(sorted(items)):
-            print i, j[0], j[1].keys()[0], j[1][('weights')].shape
-
-            i *= 2
-            print i, i+1
-            print self.parameters[i]
-            print self.parameters[i+1]
-
-            sess.run(self.parameters[i].assign(j[1]['weights']))
-            sess.run(self.parameters[i+1].assign(j[1]['biases']))
-
-            if i == 26:
-                print self.parameters[i]
-                self.parameters[i] = tf.Variable(tf.reshape(self.parameters[i], [7, 7, 512, 4096]), name='temporal_vgg16/fc6/weights')
-
-                fc6w = np.reshape(j[1]['weights'], (7, 7, 512, 4096))
-                print fc6w.shape
-
-                sess.run(self.parameters[i].assign(fc6w))
-                print self.parameters[i]
-
-            if i == 28:
-                print self.parameters[i]
-                self.parameters[i] = tf.Variable(tf.reshape(self.parameters[i], [1, 1, 4096, 4096]), name='temporal_vgg16/fc7/weights')
-
-                fc7w = np.reshape(j[1]['weights'], (1, 1, 4096, 4096))
-                print fc7w.shape
-
-                sess.run(self.parameters[i].assign(fc7w))
-                print self.parameters[i]
-
-            if i == 30:
-                print self.parameters[i]
-                self.parameters[i] = tf.Variable(tf.reshape(self.parameters[i], [1, 1, 4096, 101]), name='temporal_vgg16/fc8/weights')
-
-                fc8w = np.reshape(j[1]['weights'], (1, 1, 4096, 101))
-                print fc8w.shape
-
-                sess.run(self.parameters[i].assign(fc8w))
-                print self.parameters[i]
-
-
-        saver = tf.train.Saver()
-        saver.save(sess, 'checkpoints/temporal_vgg16.ckpt')
+    # def load_weights(self, weight_file, sess):
+    #
+    #     weights = np.load(weight_file)
+    #     items = weights[()].items()
+    #
+    #     for i, j in enumerate(sorted(items)):
+    #         print i, j[0], j[1].keys()[0], j[1][('weights')].shape
+    #
+    #         i *= 2
+    #         print i, i+1
+    #         print self.parameters[i]
+    #         print self.parameters[i+1]
+    #
+    #         sess.run(self.parameters[i].assign(j[1]['weights']))
+    #         sess.run(self.parameters[i+1].assign(j[1]['biases']))
+    #
+    #         if i == 26:
+    #             print self.parameters[i]
+    #             self.parameters[i] = tf.Variable(tf.reshape(self.parameters[i], [7, 7, 512, 4096]), name='temporal_vgg16/fc6/weights')
+    #
+    #             fc6w = np.reshape(j[1]['weights'], (7, 7, 512, 4096))
+    #             print fc6w.shape
+    #
+    #             sess.run(self.parameters[i].assign(fc6w))
+    #             print self.parameters[i]
+    #
+    #         if i == 28:
+    #             print self.parameters[i]
+    #             self.parameters[i] = tf.Variable(tf.reshape(self.parameters[i], [1, 1, 4096, 4096]), name='temporal_vgg16/fc7/weights')
+    #
+    #             fc7w = np.reshape(j[1]['weights'], (1, 1, 4096, 4096))
+    #             print fc7w.shape
+    #
+    #             sess.run(self.parameters[i].assign(fc7w))
+    #             print self.parameters[i]
+    #
+    #         if i == 30:
+    #             print self.parameters[i]
+    #             self.parameters[i] = tf.Variable(tf.reshape(self.parameters[i], [1, 1, 4096, 101]), name='temporal_vgg16/fc8/weights')
+    #
+    #             fc8w = np.reshape(j[1]['weights'], (1, 1, 4096, 101))
+    #             print fc8w.shape
+    #
+    #             sess.run(self.parameters[i].assign(fc8w))
+    #             print self.parameters[i]
+    #
+    #
+    #     saver = tf.train.Saver()
+    #     saver.save(sess, 'checkpoints/temporal_vgg16.ckpt')
         #
         # for i in range(len(items)):
         #     pass
@@ -309,23 +310,69 @@ class vgg16:
         # for i, k in enumerate(keys):
         #     print i, k, np.shape(weights[k])
         #     sess.run(self.parameters[i].assign(weights[k]))
+    def load_weights(self, weight_file, sess):
+
+        d = sio.loadmat(weight_file)
+
+        for i in range(32):
+            print i, d['net'].item(0)[1].item(i)[0], d['net'].item(0)[1].item(i)[1].shape
+
+            wb = d['net'].item(0)[1].item(i)[1]
+
+            if i % 2 != 0:
+                print i
+                wb = np.squeeze(wb)
+
+            sess.run(self.parameters[i].assign(wb))
+
+            # if i == 26:
+            #     # print self.parameters[i]
+            #     self.parameters[i] = tf.Variable(tf.reshape(self.parameters[i], [7, 7, 512, 4096]),
+            #                                      name='temporal_vgg16/fc6/weights')
+            #
+            #     fc6w = np.reshape(wb, (7, 7, 512, 4096))
+            #     print fc6w.shape
+            #
+            #     sess.run(self.parameters[i].assign(fc6w))
+            #     # print self.parameters[i]
+            #
+            # if i == 28:
+            #     # print self.parameters[i]
+            #     self.parameters[i] = tf.Variable(tf.reshape(self.parameters[i], [1, 1, 4096, 4096]),
+            #                                      name='temporal_vgg16/fc7/weights')
+            #
+            #     fc7w = np.reshape(wb, (1, 1, 4096, 4096))
+            #     print fc7w.shape
+            #
+            #     sess.run(self.parameters[i].assign(fc7w))
+            #     # print self.parameters[i]
+            #
+            # if i == 30:
+            #     # print self.parameters[i]
+            #     self.parameters[i] = tf.Variable(tf.reshape(self.parameters[i], [1, 1, 4096, 101]),
+            #                                      name='temporal_vgg16/fc8/weights')
+            #
+            #     fc8w = np.reshape(wb, (1, 1, 4096, 101))
+            #     print fc8w.shape
+            #
+            #     sess.run(self.parameters[i].assign(fc8w))
+            #
+            # else:
+            #     sess.run(self.parameters[i].assign(wb))
+
+
+        saver = tf.train.Saver()
+        saver.save(sess, 'checkpoints/temporal_vgg16_1.ckpt')
 
 if __name__ == '__main__':
 
-    # sess = tf.Session()
-    # imgs = tf.placeholder(tf.float32, [None, 224, 224, 20])
-    # vgg = vgg16(imgs, 'temporal_vgg16.npy', sess)
-
-    img1 = imread('resources/frame000044.jpg', mode='RGB')
+    img1 = imread('../work/ucf101_tvl1_flow/tvl1_flow/u/v_Nunchucks_g03_c04/frame000002.jpg', mode='RGB')
     img1 = imresize(img1, (224, 224))
 
-    # Add ops to restore all the variables.
-    # weights1_1 = tf.Variable(tf.random_normal(shape=[3,3,20,64]),dtype=tf.float32_ref, name='')
-    # Add ops to save and restore all the variables.
-
     img1 = tf.expand_dims(img1, 0)
-    # print img1.shape
-    img1 = tf.concat([img1, img1], 0)
+
+    # img1 = tf.concat([img1, img1], 0)
+
     img1 = tf.image.rgb_to_grayscale(img1)
 
     img1 = tf.concat([img1, img1, img1, img1, img1, img1, img1, img1, img1, img1,
@@ -334,11 +381,14 @@ if __name__ == '__main__':
     # img = np.copy(img1)
     # print img.shape
     with tf.Session() as sess:
-        vgg = vgg16(img1, 'checkpoints/temporal_vgg16.npy', sess)
-    #_, prob = sess.run(vgg.probs, feed_dict={vgg.imgs: img1})#[0]
-        _, prob = sess.run([img1, vgg.probs])  # [0]
+        vgg = vgg16(img1, 'ucf101-TVL1flow-vgg16-split1.mat', sess)
 
-    print prob.shape
+    #_, prob = sess.run(vgg.probs, feed_dict={vgg.imgs: img1})#[0]
+        # sess.run(tf.global_variables_initializer())
+        sess.run(tf.initialize_all_variables())
+        # _, prob = sess.run([img1, vgg.probs])  # [0]
+
+    # print prob.shape
     # prob = np.squeeze(prob)
     # print prob.shape
     #
@@ -347,4 +397,4 @@ if __name__ == '__main__':
     #     print class_names[p], prob[p]
 
     from tensorflow.python.tools.inspect_checkpoint import print_tensors_in_checkpoint_file
-    print_tensors_in_checkpoint_file(file_name='checkpoints/temporal_vgg16.ckpt', tensor_name=None, all_tensors=False)
+    print_tensors_in_checkpoint_file(file_name='checkpoints/temporal_vgg16_1.ckpt', tensor_name=None, all_tensors=False)

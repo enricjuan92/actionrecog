@@ -9,12 +9,58 @@ matplotlib.use('Agg')
 from datasets.UCF101 import ucf101_utils
 from models.vgg import vgg
 from datetime import datetime
+import scipy.io as sio
 
 slim = tf.contrib.slim
 
 def np_accuracy(predictions, labels):
-  return (100.0 * np.sum(np.argmax(predictions, 1) == np.argmax(labels, 1))
+    print(predictions.shape, labels.shape)
+    return (100.0 * np.sum(np.argmax(predictions, 1) == np.argmax(labels, 1))
           / predictions.shape[0])
+
+
+def softmax(X, theta=1.0, axis=None):
+    """
+    Compute the softmax of each element along an axis of X.
+
+    Parameters
+    ----------
+    X: ND-Array. Probably should be floats.
+    theta (optional): float parameter, used as a multiplier
+        prior to exponentiation. Default = 1.0
+    axis (optional): axis to compute values along. Default is the
+        first non-singleton axis.
+
+    Returns an array the same size as X. The result will sum to 1
+    along the specified axis.
+    """
+
+    # make X at least 2d
+    y = np.atleast_2d(X)
+
+    # find axis
+    if axis is None:
+        axis = next(j[0] for j in enumerate(y.shape) if j[1] > 1)
+
+    # multiply y against the theta parameter,
+    y = y * float(theta)
+
+    # subtract the max for numerical stability
+    y = y - np.expand_dims(np.max(y, axis=axis), axis)
+
+    # exponentiate y
+    y = np.exp(y)
+
+    # take the sum along the specified axis
+    ax_sum = np.expand_dims(np.sum(y, axis=axis), axis)
+
+    # finally: divide elementwise
+    p = y / ax_sum
+
+    # flatten if X was 1D
+    if len(X.shape) == 1: p = p.flatten()
+
+    return p
 
 with tf.Graph().as_default():
 
@@ -22,25 +68,30 @@ with tf.Graph().as_default():
     work_dir = '../work/ucf101_tvl1_flow/tvl1_flow/'
 
     # test_split_path = 'datasets/valid_datasets/ucf101_valid_split1.txt'
-    test_split_path = 'datasets/valid_datasets/ucf101_testlist01.txt'
+    test_split_path = 'datasets/valid_datasets/ucf101_testlist03.txt'
 
     # checkpoint_path = 'checkpoints/finetune_spatial_vgg16_11_06.ckpt'
     # checkpoint_path = 'checkpoints/finetune_spatial_vgg16_split1.ckpt'
-    checkpoint_path = 'checkpoints/finetune_temporal_trainlist01_1.ckpt'
+    # checkpoint_path = 'checkpoints/finetune_temporal_trainlist01.ckpt'
+    checkpoint_path = 'checkpoints/temporal_vgg16_1.ckpt'
+    checkpoint_path = 'checkpoints/finetune_temporal_trainlist02.ckpt'
+    checkpoint_path = 'checkpoints/finetune_temporal_trainlist03.ckpt'
+    # checkpoint_path = 'checkpoints/temporal_vgg16.ckpt'
     filewriter_path = 'tensorboard_temporal/'
 
 
     model_scope = 'vgg_16'
+    # model_scope = 'temporal_vgg16'
 
     if not tf.gfile.Exists(filewriter_path):
         tf.gfile.MakeDirs(filewriter_path)
 
     # SET UP CONFIGURATION VARIABLES
-    num_samples_per_clip = 18
-    batch_size = 180
+    num_samples_per_clip = 25
+    batch_size = 50
 
-    test_dataset_num_clips = 100
-    test_dataset_clips_per_split = 10 # test_dataset [10*20*10, 224, 224, 3]
+    test_dataset_num_clips = 2000
+    test_dataset_clips_per_split = 1 # test_dataset [10*20*10, 224, 224, 3]
     test_dataset_offset = 0
 
     display_step = 1
@@ -60,6 +111,9 @@ with tf.Graph().as_default():
         probabilities = tf.nn.softmax(logits=avg_scores)
 
     # Get list of variables to restore
+    train_layers = ['fc8']
+    var_list = [v for v in tf.trainable_variables() if v.name.split('/')[1] in train_layers]
+    # variables_to_restore = tf.contrib.framework.get_variables_to_restore(exclude=train_layers)
     variables_to_restore = tf.contrib.framework.get_variables_to_restore(exclude=[])
 
     # Add ops to restore all the variables.
@@ -88,6 +142,13 @@ with tf.Graph().as_default():
     saver = tf.train.Saver()
 
     with tf.Session() as sess:
+
+        pickle_predictions = np.zeros((test_dataset_num_clips, 101))
+        pickle_labels = np.zeros((test_dataset_num_clips, 101))
+
+        # d = sio.loadmat('ucf101-img-vgg16-split1.mat')
+        # sess.run(var_list[0].assign(d['net'].item(0)[1].item(30)[1]))
+        # sess.run(var_list[1].assign(np.squeeze(d['net'].item(0)[1].item(31)[1])))
 
         # Add the model graph to TensorBoard
         writer.add_graph(sess.graph)
@@ -124,6 +185,8 @@ with tf.Graph().as_default():
             itest_acc = 0.
             itest_count = 0
 
+            temporal_prediction = np.zeros((250, 101))
+
             for step in range(test_batches_per_epoch):
 
                 offset = (step * batch_size) % (test_labels.shape[0] - batch_size)
@@ -135,6 +198,12 @@ with tf.Graph().as_default():
 
                 feed_dict = {ph_images: batch_data, ph_labels: batch_labels}
 
+                b_start = (step * batch_size) % (200)
+                b_end = b_start + batch_size
+
+                temporal_prediction[b_start:b_end, :] = sess.run(scores, feed_dict=feed_dict)
+                temporal_labels = batch_labels[0, :]
+
                 acc = sess.run(accuracy, feed_dict=feed_dict)
 
                 print('Calculating accuracy mean ... Step %d' % step)
@@ -142,12 +211,38 @@ with tf.Graph().as_default():
                 itest_acc += acc
                 itest_count += 1
 
-                test_acc += acc
-                test_count += 1
+                # test_acc += acc
+                # test_count += 1
+
+                if ((step + 1) % 5 == 0):
+                    avg_temporal_pred_fc8 = np.mean(temporal_prediction, axis=0)
+                    avg_temporal_pred = softmax(avg_temporal_pred_fc8)
+
+                    pickle_predictions[dataset_step, :] = avg_temporal_pred
+                    pickle_labels[dataset_step, :] = temporal_labels
+
+                    avg_temporal_pred = np.expand_dims(avg_temporal_pred, axis=0)
+                    temporal_labels = np.expand_dims(temporal_labels, axis=0)
+
+                    print(avg_temporal_pred.shape)
+
+                    video_acc = np_accuracy(avg_temporal_pred, temporal_labels)
+                    print('NP temporal accuracy: ', video_acc)
+
 
             itest_acc /= itest_count
             print("Validation Mean Accuracy from subset #%d = %.1f%%" % ((dataset_step + 1), (itest_acc * 100)))
 
+            test_acc += video_acc
+            test_count += 1
+
+
+        dict = {
+            'dataset': pickle_predictions,
+            'labels': pickle_labels
+        }
+        ucf101_utils.save_pickle('temporal_predictions_1.pickle', dict)
+
         test_acc /= test_count
         print('Number of batch accuracies: %d (test_count %d)' % ((test_batches_per_epoch*dataset_splits), test_count))
-        print("Validation Mean Accuracy = %.1f%%" % (test_acc * 100))
+        print("Validation Mean Accuracy = %.1f%%" % (test_acc))

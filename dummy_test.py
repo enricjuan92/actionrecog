@@ -194,129 +194,35 @@ class vgg16:
             self.parameters += [kernel, biases]
 
         # conv5_3
-        with tf.name_scope('spatial_vgg16/conv5/conv5_3') as scope:
-            kernel = tf.Variable(tf.truncated_normal([3, 3, 512, 512], dtype=tf.float32,
-                                                     stddev=1e-1), name='weights')
-            conv = tf.nn.conv2d(self.conv5_2, kernel, [1, 1, 1, 1], padding='SAME')
-            biases = tf.Variable(tf.constant(0.0, shape=[512], dtype=tf.float32),
-                                 trainable=True, name='biases')
-            out = tf.nn.bias_add(conv, biases)
-            self.conv5_3 = tf.nn.relu(out, name=scope)
-            self.parameters += [kernel, biases]
 
-        # pool5
-        self.pool5 = tf.nn.max_pool(self.conv5_3,
-                               ksize=[1, 2, 2, 1],
-                               strides=[1, 2, 2, 1],
-                               padding='SAME',
-                               name='pool4')
-
-    def fc_layers(self):
-
-        # fc1
-        shape = int(np.prod(self.pool5.get_shape()[1:]))
-
-        with tf.name_scope('spatial_vgg16/fc6') as scope:
-            fc1w = tf.Variable(tf.truncated_normal([shape, 4096], dtype=tf.float32, stddev=1e-1), name='old_weights')
-            fc1b = tf.Variable(tf.constant(1.0, shape=[4096], dtype=tf.float32), trainable=True, name='biases')
-
-        pool5_flat = tf.reshape(self.pool5, [-1, shape])
-        fc1l = tf.nn.bias_add(tf.matmul(pool5_flat, fc1w), fc1b)
-        self.fc1 = tf.nn.relu(fc1l)
-        self.parameters += [fc1w, fc1b]
-
-        # fc2
-        with tf.name_scope('spatial_vgg16/fc7') as scope:
-            fc2w = tf.Variable(tf.truncated_normal([4096, 4096], dtype=tf.float32, stddev=1e-1), name='old_weights')
-            fc2b = tf.Variable(tf.constant(1.0, shape=[4096], dtype=tf.float32), trainable=True, name='biases')
-
-        fc2l = tf.nn.bias_add(tf.matmul(self.fc1, fc2w), fc2b)
-        self.fc2 = tf.nn.relu(fc2l)
-        self.parameters += [fc2w, fc2b]
-
-        # fc3
-        with tf.name_scope('spatial_vgg16/fc8') as scope:
-            fc3w = tf.Variable(tf.truncated_normal([4096, 101], dtype=tf.float32, stddev=1e-1), name='old_weights')
-            fc3b = tf.Variable(tf.constant(1.0, shape=[101], dtype=tf.float32), trainable=True, name='biases')
-
-        self.fc3l = tf.nn.bias_add(tf.matmul(self.fc2, fc3w), fc3b)
-        self.parameters += [fc3w, fc3b]
-
-        self.parameters.append(tf.Variable(tf.constant(0, dtype=tf.int64), trainable=True, name='global_step'))
-
-    def load_weights(self, weight_file, sess):
-
-        weights = np.load(weight_file)
-        items = weights[()].items()
-
-        for i, j in enumerate(sorted(items)):
-            print i, j[0], j[1].keys()[0], j[1][('weights')].shape
-
-            if i == 14:
-                print j[0], j[1].keys()[0]
-                print j[1][('weights')]
-
-            # print j[1][('weights')]
-
-            i *= 2
-            # print i, i+1
-            # print self.parameters[i]
-            # print self.parameters[i+1]
-
-            sess.run(self.parameters[i].assign(j[1]['weights']))
-            sess.run(self.parameters[i+1].assign(j[1]['biases']))
-
-
-            if i == 26:
-                # print self.parameters[i]
-                self.parameters[i] = tf.Variable(tf.reshape(self.parameters[i], [7, 7, 512, 4096]), name='spatial_vgg16/fc6/weights')
-
-                fc6w = np.reshape(j[1]['weights'], (7, 7, 512, 4096))
-                print fc6w.shape
-
-                sess.run(self.parameters[i].assign(fc6w))
-                # print self.parameters[i]
-
-            if i == 28:
-                # print self.parameters[i]
-                self.parameters[i] = tf.Variable(tf.reshape(self.parameters[i], [1, 1, 4096, 4096]), name='spatial_vgg16/fc7/weights')
-
-                fc7w = np.reshape(j[1]['weights'], (1, 1, 4096, 4096))
-                print fc7w.shape
-
-                sess.run(self.parameters[i].assign(fc7w))
-                # print self.parameters[i]
-
-            if i == 30:
-                # print self.parameters[i]
-                self.parameters[i] = tf.Variable(tf.reshape(self.parameters[i], [1, 1, 4096, 101]), name='spatial_vgg16/fc8/weights')
-
-                fc8w = np.reshape(j[1]['weights'], (1, 1, 4096, 101))
-                print fc8w
-
-                sess.run(self.parameters[i].assign(fc8w))
-                # print self.parameters[i]
-
-        # global_step_tensor = tf.Variable(10, trainable=False, name='global_step')
-        sess.run(self.parameters[-1].assign(10))
-        # tf.add_to_collection('global_step', global_step_tensor)
-
-        saver = tf.train.Saver()
-        saver.save(sess, 'checkpoints/spatial_vgg16.ckpt')
-
-        # keys = sorted(weights.keys())
-        # for i, k in enumerate(keys):
-        #     print i, k, np.shape(weights[k])
-        #     sess.run(self.parameters[i].assign(weights[k]))
+def np_accuracy(predictions, labels):
+  return (100.0 * np.sum(np.argmax(predictions, 1) == np.argmax(labels, 1))
+          / predictions.shape[0])
 
 if __name__ == '__main__':
 
-    weights = np.load('checkpoints/temporal_vgg16.npy')
-    items = weights[()].items()
+    from six.moves import cPickle as pickle
+    from datasets import ucf101_utils
 
-    for i, j in enumerate(sorted(items)):
-        print i, j[0], j[1].keys()[0], j[1][('weights')].shape
-        if j[0] == 'fc7':
-            print j[1][('weights')]
-            print j[1][('biases')]
+    with open('temporal_predictions_1.pickle', 'rb') as f:
+        tmp_dict = pickle.load(f)
+
+    with open('spatial_predictions.pickle', 'rb') as f:
+        spt_dict = pickle.load(f)
+
+    tmp_pred = tmp_dict['dataset']
+    tmp_labels = tmp_dict['labels']
+
+    spt_pred = spt_dict['dataset']
+    spt_labels = spt_dict['labels']
+
+    fused_pred = np.array(tmp_pred) * 1. / 5 + \
+                 np.array(spt_pred) * 4. / 5
+
+    print(fused_pred.shape)
+    print(tmp_labels.shape)
+
+    print(np_accuracy(spt_pred, spt_labels))
+    print(np_accuracy(tmp_pred, tmp_labels))
+    print(np_accuracy(fused_pred, spt_pred))
 

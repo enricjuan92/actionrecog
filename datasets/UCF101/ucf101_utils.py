@@ -135,6 +135,7 @@ def load_pickle(pickle_file):
 
     with open(pickle_file, 'rb') as f:
         save = pickle.load(f)
+
         dataset = save['dataset']
         labels = save['labels']
         del save  # hint to help gc free up memory
